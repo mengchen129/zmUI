@@ -1,0 +1,15 @@
+@import "../../common/defaults";
+
+.zm-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $color-green;
+  height: $header-height;
+  font-size: 18px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
