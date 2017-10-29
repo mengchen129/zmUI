@@ -35,6 +35,10 @@ module.exports = {
                 options: {
                     name: '[name].[ext]?[hash]'
                 }
+            },
+            {
+                test: /\.scss$/,
+                loader: 'vue-style-loader!css-loader!sass-loader',
             }
         ]
     },

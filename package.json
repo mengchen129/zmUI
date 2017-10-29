@@ -1,7 +1,7 @@
 {
   "name": "zmui",
   "description": "A Mobile UI Components Library based on Vue.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "mengchen <mengchen@zhimadj.com>",
   "private": true,
   "main": "./src/index.js",
