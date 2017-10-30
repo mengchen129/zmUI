@@ -1,5 +1,6 @@
 import Header from './components/Header/Header.vue';
 import Toast from './components/Toast/Toast.vue';
+import Slider from './components/Slider/Slider.vue';
 import './common/utils.scss';
 
 const install = function(Vue) {
@@ -7,10 +8,11 @@ const install = function(Vue) {
 
     Vue.component(Header.name, Header);
     Vue.component(Toast.name, Toast);
+    Vue.component(Slider.name, Slider);
 };
 
 export default {
     install: install
 };
 
-export { Header, Toast };
+export { Header, Toast, Slider };

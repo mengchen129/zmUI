@@ -1,0 +1,50 @@
+@import "../../common/defaults";
+
+.zm-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.zm-slider-list {
+  display: flex;
+  flex-wrap: nowrap;
+  transition: transform 0.3s ease-out;
+}
+
+.zm-slider-img-wrap {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.zm-slider-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.zm-slider-points {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.zm-slider-point-wrap {
+  padding: 4px;
+  cursor: pointer;
+}
+
+.zm-slider-point {
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+  background-color: rgba(#d8d8d8, 0.5);
+}
+
+.zm-slider-point.highlight {
+  background-color: rgba($color-green, 0.5);
+}
