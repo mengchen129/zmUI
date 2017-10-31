@@ -8,7 +8,12 @@
 
         <zm-slider :list="imgList" @slider-click="onSliderClick"></zm-slider>
 
+        <button @click="showLoading">Show Loading</button>
+        <button @click="showLoadingModal">Show Loading(Modal)</button>
+        <button @click="hideLoading">Hide Loading</button>
+
         <zm-toast></zm-toast>
+        <zm-loading></zm-loading>
     </div>
 </template>
 
@@ -33,6 +38,18 @@
             },
             onSliderClick(slider) {
                 console.log(slider);
+            },
+            showLoading() {
+                this.$loading.show();
+            },
+            showLoadingModal() {
+                this.$loading.show('提交中', true);
+                setTimeout(() => {
+                    this.hideLoading();
+                }, 2000);
+            },
+            hideLoading() {
+                this.$loading.hide();
             }
         }
     }

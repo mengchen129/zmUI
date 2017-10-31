@@ -69,8 +69,28 @@ If `href` is not defined, then it will emit an event `slider-click` with the cur
 ##### auto
 The autoplay interval (ms), set 0 (default) for disable autoplay
 
+### `Loading`
+A loading icon displayed on the screen center
+#### Example
+Mount `zm-loading` on the root vue instance:
+```xml
+<zm-loading></zm-loading>
+```
+Invoke `$loading.show` or `$loading.hide` on any vue instance:
+```javascript
+this.$loading.show('Loading...');
+this.$loading.hide();
+```
+
+#### Options
+You can pass the second parameter to `show` to set the loading icon be modal or not (Not modal by default).
+```javascript
+this.$loading.show('Loading...', true);
+````
 
 ## Changelog
+### v0.1.3 (2017-10-31)
+- Add component `Loading`
 ### v0.1.2 (2017-10-30)
 - Add component `Slider`
 ### v0.1.1 (2017-10-29)
