@@ -1,19 +1,29 @@
 <template>
-    <div class="demo-container">
-        <zm-header>Hello, zmUI</zm-header>
+    <div>
+        <div class="demo-nav">
+            <div class="demo-logo"></div>
+            <div class="demo-title">zmUI demos</div>
+        </div>
 
-        <button class="" @click="showToast('LENGTH_SHORT')">Show Toast (short)</button>
-        <button @click="showToast()">Show Toast (normal)</button>
-        <button @click="showToast('LENGTH_LONG')">Show Toast (long)</button>
+        <div class="demo-list">
+            <div class="demo-list-item" @click="link('/header')">
+                <div class="demo-list-item-icon icon-header"></div> Header
+            </div>
+            <div class="demo-list-item" @click="link('/toast')">
+                <div class="demo-list-item-icon icon-toast"></div> Toast
+            </div>
+            <div class="demo-list-item" @click="link('/loading')">
+                <div class="demo-list-item-icon icon-loading"></div> Loading
+            </div>
+            <div class="demo-list-item" @click="link('/slider')">
+                <div class="demo-list-item-icon icon-slider"></div> Slider
+            </div>
+            <div class="demo-list-item" @click="link('/keyboard')">
+                <div class="demo-list-item-icon icon-keyboard"></div> Number Keyboard
+            </div>
+        </div>
 
-        <zm-slider :list="imgList" @slider-click="onSliderClick"></zm-slider>
-
-        <button @click="showLoading">Show Loading</button>
-        <button @click="showLoadingModal">Show Loading(Modal)</button>
-        <button @click="hideLoading">Hide Loading</button>
-
-        <zm-toast></zm-toast>
-        <zm-loading></zm-loading>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -23,40 +33,115 @@
     export default {
         data () {
             return {
-                imgList: [
-                    "http://img.ishequ360.com/images/test/banner1@1x.jpeg",
-                    "http://img.ishequ360.com/images/test/banner6@1x.jpeg",
-                    "http://img.ishequ360.com/images/test/banner3@1x.jpeg",
-                    "http://img.ishequ360.com/images/test/banner4@1x.jpeg",
-                    "http://img.ishequ360.com/images/test/banner5@1x.jpeg",
-                ].map(url => ({url: url, href: 'http://www.baidu.com'}))
             }
         },
         methods: {
-            showToast(duration) {
-                this.$toast.show('Hello, toast', Toast[duration]);
+            link(path) {
+                this.$router.push(path);
             },
-            onSliderClick(slider) {
-                console.log(slider);
-            },
-            showLoading() {
-                this.$loading.show();
-            },
-            showLoadingModal() {
-                this.$loading.show('提交中', true);
-                setTimeout(() => {
-                    this.hideLoading();
-                }, 2000);
-            },
-            hideLoading() {
-                this.$loading.hide();
-            }
+
+
         }
     }
 </script>
 
 <style>
-    .demo-container {
-        padding-top: 45px;
+    .demo-page {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        bottom: 0;
+        padding: 55px 10px 10px 10px;
+        background-color: #fff;
+        overflow: auto;
+        z-index: 10;
+    }
+
+    .demo-page.no-lr-padding {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .demo-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+    }
+
+    .demo-logo {
+        width: 100px;
+        height: 100px;
+        background: url('https://raw.githubusercontent.com/mengchen129/zmUI/master/src/assets/icon.png') no-repeat center;
+        background-size: contain;
+    }
+
+    .demo-title {
+        font-size: 32px;
+        color: #33c298;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .demo-list {
+        background-color: #fff;
+        color: #333;
+        border-top: 1px solid #d8d8d8;
+    }
+
+    .demo-list-item {
+        height: 50px;
+        font-size: 16px;
+        padding-left: 10px;
+        border-bottom: 1px solid #d8d8d8;
+        display: flex;
+        align-items: center;
+        background: url('../src/assets/demo/icon-arrow-right.png') no-repeat right 10px center;
+        background-size: 16px 16px;
+    }
+
+    .demo-list-item-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+
+    .icon-header {
+        background-image: url('../src/assets/demo/icon-header.png');
+    }
+
+    .icon-toast {
+        background-image: url('../src/assets/demo/icon-toast.png');
+    }
+
+    .icon-loading {
+        background-image: url('../src/assets/demo/icon-loading.png');
+    }
+
+    .icon-slider {
+        background-image: url('../src/assets/demo/icon-slider.png');
+    }
+
+    .icon-keyboard {
+        background-image: url('../src/assets/demo/icon-keyboard.png');
+    }
+
+    .demo-btn {
+        padding: 10px 20px;
+        display: block;
+        margin-bottom: 10px;
+        color: #333;
+        font-size: 14px;
+        border: 1px solid #999;
+        background-color: #f8f8f8;
+        outline: none;
+    }
+
+    .demo-btn:active {
+        background-color: #d8d8d8;
     }
 </style>

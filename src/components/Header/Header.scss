@@ -13,3 +13,14 @@
   justify-content: center;
   align-items: center;
 }
+
+.zm-header-back {
+  position: absolute;
+  display: block;
+  width: $header-height;
+  height: $header-height;
+  left: 0;
+  top: 0;
+  background: url('../../assets/icon-zg-header-back.png') no-repeat center;
+  background-size: 11px 19px;
+}

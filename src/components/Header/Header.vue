@@ -1,5 +1,6 @@
 <template>
     <div class="zm-header">
+        <div class="zm-header-back" @click="headerBack"></div>
         <slot></slot>
     </div>
 </template>
@@ -10,6 +11,11 @@
         data() {
             return {
                 
+            }
+        },
+        methods: {
+            headerBack() {
+                history.back();
             }
         }
     }

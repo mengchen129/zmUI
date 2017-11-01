@@ -1,0 +1,62 @@
+@import "../../common/defaults";
+
+.zm-number-keyboard-enter-active, .zm-number-keyboard-leave-active {
+  transition: opacity .2s;
+}
+.zm-number-keyboard-enter, .zm-number-keyboard-leave-active {
+  opacity: 0;
+}
+
+.zm-number-keyboard {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(#000, 0.5);
+  z-index: $keyboard-z-index;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
+}
+
+.zm-keyboard-table {
+  width: 100%;
+  background-color: #fff;
+  color: #333;
+  font-size: 28px;
+  border-collapse: collapse;
+}
+
+.zm-keyboard-table td {
+  width: 25%;
+  height: 55px;
+  border: 1px solid #eee;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.zm-keyboard-table td:not(.zm-keyboard-ok):active {
+  background-color: #eeeeee;
+}
+
+.zm-keyboard-delete {
+  background: url('../../assets/icon-delete-keybroad.png') no-repeat center;
+  background-size: 33px 24px;
+}
+
+.zm-keyboard-ok {
+  background-color: $color-green-6;
+  font-size: 16px;
+  color: $color-white;
+}
+
+.zm-keyboard-ok:active {
+  background-color: darken($color-green-6, 10%);
+}
+
+.zm-keyboard-cancel {
+  background: url('../../assets/icon-keybroad.png') no-repeat center;
+  background-size: 36px 32px;
+}
