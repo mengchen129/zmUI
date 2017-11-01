@@ -1,5 +1,9 @@
 # zmUI
-基于 Vue.js 的移动端 UI 组件库
+
+A Mobile UI Components Library based on Vue.js
+
+![](https://raw.githubusercontent.com/mengchen129/zmUI/master/src/assets/icon.png)
+
 
 ## Install
 ```javascript
