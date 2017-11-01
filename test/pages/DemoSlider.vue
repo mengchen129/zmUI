@@ -11,11 +11,11 @@
         data() {
             return {
                 imgList: [
-                    "//img.ishequ360.com/images/test/banner1@1x.jpeg",
-                    "//img.ishequ360.com/images/test/banner6@1x.jpeg",
-                    "//img.ishequ360.com/images/test/banner3@1x.jpeg",
-                    "//img.ishequ360.com/images/test/banner4@1x.jpeg",
-                    "//img.ishequ360.com/images/test/banner5@1x.jpeg",
+                    "https://raw.githubusercontent.com/mengchen129/zmUI/master/src/assets/demo/slider-imgs/img1.jpeg",
+                    "https://raw.githubusercontent.com/mengchen129/zmUI/master/src/assets/demo/slider-imgs/img2.jpeg",
+                    "https://raw.githubusercontent.com/mengchen129/zmUI/master/src/assets/demo/slider-imgs/img3.jpeg",
+                    "https://raw.githubusercontent.com/mengchen129/zmUI/master/src/assets/demo/slider-imgs/img4.jpeg",
+                    "https://raw.githubusercontent.com/mengchen129/zmUI/master/src/assets/demo/slider-imgs/img5.jpeg",
                 ].map(url => ({url: url, href: 'http://m.baidu.com'})),
             }
         }
