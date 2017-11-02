@@ -4,6 +4,8 @@ A Mobile UI Components Library based on Vue.js
 
 ![](https://raw.githubusercontent.com/mengchen129/zmUI/master/src/assets/icon.png)
 
+## Demo
+[View Demo](https://mengchen129.github.io/zmui/)
 
 ## Install
 ```javascript
@@ -92,7 +94,48 @@ You can pass the second parameter to `show` to set the loading icon be modal or 
 this.$loading.show('Loading...', true);
 ````
 
+### `NumberKeyboard`
+Open a numeric keyboard
+#### Example
+```html
+<zm-number-keyboard @input="onNumberInput" @ok="setNumber">
+    <div>Your input: {{ numberInput }}</div>
+</zm-number-keyboard>
+```
+```javascript
+export default {
+    data() {
+        return {
+            numberInput: '',
+            number: '',
+        }  
+    },
+    methods: {
+        onNumberInput(number) {
+            this.numberInput = number;
+        },
+        setNumber(number) {
+            this.number = number;
+        }
+    }
+}
+```
+
+#### Events
+##### input
+Trigger when keyboard keys clicked, contains the realtime result
+##### ok
+Trigger when ok button clicked, contains the final result
+
+
+
 ## Changelog
+### v0.2.0 (2017-11-02)
+- Add component `NumberKeyboard`
+- Add component `SingleSelect` and `MultipleSelect`
+- Add demo pages
+- Extract transition styles
+- Other optimization
 ### v0.1.3 (2017-10-31)
 - Add component `Loading`
 ### v0.1.2 (2017-10-30)
