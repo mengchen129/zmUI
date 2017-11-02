@@ -1,24 +1,11 @@
 @import "../../common/defaults";
 
-.zm-number-keyboard-enter-active, .zm-number-keyboard-leave-active {
-  transition: opacity .2s;
-}
-.zm-number-keyboard-enter, .zm-number-keyboard-leave-active {
-  opacity: 0;
-}
-
 .zm-number-keyboard {
   position: fixed;
   left: 0;
-  top: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgba(#000, 0.5);
   z-index: $keyboard-z-index;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: stretch;
 }
 
 .zm-keyboard-table {

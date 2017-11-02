@@ -1,6 +1,6 @@
 <template>
     <div class="demo-page">
-        <zm-header>Loading</zm-header>
+        <zm-header :back="true">Loading</zm-header>
 
         <button class="demo-btn" @click="showLoading">展示 Loading</button>
         <button class="demo-btn" @click="hideLoading">隐藏 Loading</button>

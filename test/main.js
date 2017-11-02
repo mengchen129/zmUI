@@ -5,6 +5,8 @@ import DemoToast from './pages/DemoToast.vue';
 import DemoLoading from './pages/DemoLoading.vue';
 import DemoSlider from './pages/DemoSlider.vue';
 import DemoKeyboard from './pages/DemoKeyboard.vue';
+import DemoSingleSelect from './pages/DemoSingleSelect.vue';
+import DemoMultipleSelect from './pages/DemoMultipleSelect.vue';
 
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
@@ -29,6 +31,14 @@ const routes = [
     {
         path: '/keyboard',
         component: DemoKeyboard
+    },
+    {
+        path: '/single-select',
+        component: DemoSingleSelect
+    },
+    {
+        path: '/multiple-select',
+        component: DemoMultipleSelect
     }
 ];
 

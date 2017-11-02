@@ -25,10 +25,3 @@
   justify-content: center;
   align-items: center;
 }
-
-.zm-toast-enter-active, .zm-toast-leave-active {
-  transition: opacity .5s
-}
-.zm-toast-enter, .zm-toast-leave-active {
-  opacity: 0
-}

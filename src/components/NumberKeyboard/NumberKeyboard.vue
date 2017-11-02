@@ -1,7 +1,7 @@
 <template>
-    <transition name="zm-number-keyboard">
-    <div class="zm-number-keyboard" @click="cancel" v-if="showing">
-        <div class="zm-keyboard-main" @click.stop>
+    <div>
+        <transition name="zm-enter-from-bottom">
+        <div class="zm-number-keyboard" v-if="showing" @click.stop>
             <slot></slot>
             <table class="zm-keyboard-table">
                 <tbody>
@@ -30,8 +30,12 @@
                 </tbody>
             </table>
         </div>
+        </transition>
+
+        <transition name="zm-shadow">
+            <div class="zm-shadow" v-if="showing" @click="cancel"></div>
+        </transition>
     </div>
-    </transition>
 </template>
 
 <script>

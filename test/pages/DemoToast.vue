@@ -1,6 +1,6 @@
 <template>
     <div class="demo-page">
-        <zm-header>Toast</zm-header>
+        <zm-header :back="true">Toast</zm-header>
 
         <button class="demo-btn" @click="showToast('LENGTH_SHORT')">展示 Toast (1s)</button>
         <button class="demo-btn" @click="showToast()">展示 Toast (3s 默认)</button>

@@ -1,6 +1,6 @@
 <template>
     <div class="demo-page">
-        <zm-header>Number Keyboard</zm-header>
+        <zm-header :back="true">Number Keyboard</zm-header>
 
         <button class="demo-btn" @click="showNumberKeyboard">打开数字键盘</button>
         <p>您的报价为：{{ number }}</p>

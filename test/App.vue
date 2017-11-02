@@ -21,6 +21,12 @@
             <div class="demo-list-item" @click="link('/keyboard')">
                 <div class="demo-list-item-icon icon-keyboard"></div> Number Keyboard
             </div>
+            <div class="demo-list-item" @click="link('/single-select')">
+                <div class="demo-list-item-icon icon-single"></div> Single Select
+            </div>
+            <div class="demo-list-item" @click="link('/multiple-select')">
+                <div class="demo-list-item-icon icon-multiple"></div> Multiple Select
+            </div>
         </div>
 
         <router-view></router-view>
@@ -39,8 +45,6 @@
             link(path) {
                 this.$router.push(path);
             },
-
-
         }
     }
 </script>
@@ -88,6 +92,7 @@
         background-color: #fff;
         color: #333;
         border-top: 1px solid #d8d8d8;
+        margin-bottom: 20px;
     }
 
     .demo-list-item {
@@ -128,6 +133,14 @@
 
     .icon-keyboard {
         background-image: url('../src/assets/demo/icon-keyboard.png');
+    }
+
+    .icon-single {
+        background-image: url('../src/assets/demo/icon-single.png');
+    }
+
+    .icon-multiple {
+        background-image: url('../src/assets/demo/icon-multiple.png');
     }
 
     .demo-btn {

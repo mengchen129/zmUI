@@ -1,6 +1,6 @@
 <template>
     <div class="demo-page no-lr-padding">
-        <zm-header>Slider</zm-header>
+        <zm-header :back="true">Slider</zm-header>
 
         <zm-slider :list="imgList" :auto="2000"></zm-slider>
     </div>
