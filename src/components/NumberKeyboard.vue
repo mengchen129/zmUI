@@ -42,7 +42,14 @@
     export default {
         name: 'zm-number-keyboard',
         props: {
-
+            maxValue: {
+                type: Number,
+                default: Number.MAX_VALUE,
+            },
+            maxDecimal: {
+                type: Number,
+                default: 2,
+            }
         },
         data() {
             return {
@@ -57,7 +64,19 @@
         },
         methods: {
             append(number) {
-                this.value = this.value + String(number);
+                let newValue = this.value + String(number);
+                if (parseFloat(newValue) > this.maxValue) {
+                    this.$toast.show('最大值限制为' + this.maxValue);
+                    return;
+                }
+
+                let dotIndex = newValue.indexOf('.');
+                if (dotIndex >= 0 && newValue.length - 1 - dotIndex > this.maxDecimal) {
+                    this.$toast.show('最大小数位为' + this.maxDecimal);
+                    return;
+                }
+
+                this.value = newValue;
             },
             point() {
                 if (this.value.indexOf('.') === -1) {

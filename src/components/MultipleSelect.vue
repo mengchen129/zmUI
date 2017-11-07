@@ -43,6 +43,10 @@
             valueKey: {
                 type: String,
                 default: '',
+            },
+            maxSelected: {
+                type: Number,
+                default: 10000,
             }
         },
         data() {
@@ -69,7 +73,11 @@
             toggleOption(option) {
                 let index = this.selectedList.indexOf(option);
                 if (index === -1) {
-                    this.selectedList.push(option);
+                    if (this.selectedList.length >= this.maxSelected) {
+                        this.$toast && this.$toast.show('最多可选' + this.maxSelected + '项', 1500);
+                    } else {
+                        this.selectedList.push(option);
+                    }
                 } else {
                     this.selectedList.splice(index, 1);
                 }

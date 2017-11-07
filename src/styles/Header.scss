@@ -14,7 +14,7 @@
 }
 
 .zm-header.inline {
-  position: static;
+  position: relative;
 }
 
 .zm-header-back {
@@ -37,7 +37,7 @@
   padding: 0 15px;
   display: flex;
   align-items: center;
-  font-size: 16px;
+  font-size: 17px;
 }
 
 .zm-header-btn.left {

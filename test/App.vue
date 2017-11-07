@@ -35,6 +35,8 @@
             </div>
         </div>
 
+        <zm-toast></zm-toast>
+
         <router-view></router-view>
     </div>
 </template>
