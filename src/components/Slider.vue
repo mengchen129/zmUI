@@ -204,7 +204,3 @@
         }
     }
 </script>
-
-<style lang="sass">
-    @import "Slider.scss";
-</style>

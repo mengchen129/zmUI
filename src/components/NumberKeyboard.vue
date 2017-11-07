@@ -87,7 +87,3 @@
         }
     }
 </script>
-
-<style lang="sass">
-    @import "NumberKeyboard.scss";
-</style>

@@ -130,6 +130,9 @@ Trigger when ok button clicked, contains the final result
 
 
 ## Changelog
+### v0.3.0 (2017-11-07)
+- Support Theme customized
+- Adjust directory structure
 ### v0.2.0 (2017-11-02)
 - Add component `NumberKeyboard`
 - Add component `SingleSelect` and `MultipleSelect`

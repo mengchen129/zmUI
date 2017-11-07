@@ -1,11 +1,9 @@
-@import "../../common/defaults";
-
 .zm-single-select-main {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 300px;
+  max-height: 64%;      /* 按内容自适应高度，最高不超过 16/(16+9), 即黑白比例为16:9 */
   background-color: #fff;
   z-index: $select-z-index;
   font-size: 17px;
@@ -21,6 +19,7 @@
 }
 
 .zm-single-select-header {
+  flex-shrink: 0;
   height: 44px;
   padding-left: 16px;
   border-bottom: 1px solid #eeeeee;
@@ -30,7 +29,7 @@
 }
 
 .zm-single-select-current {
-  border-bottom: 2px solid $color-green-6;
+  border-bottom: 2px solid $theme-color;
   line-height: 44px;
 }
 
@@ -39,7 +38,7 @@
   padding: 0 16px;
   border: none;
   outline: none;
-  color: $color-green-6;
+  color: $theme-color;
   background-color: #fff;
   font-size: inherit;
 }
@@ -51,6 +50,7 @@
 .zm-single-select-list {
   flex: 1;
   overflow: auto;
+  padding: 10px 0;
 }
 
 .zm-single-select-item {
@@ -60,5 +60,5 @@
 }
 
 .zm-single-select-item.selected {
-  color: $color-green-6;
+  color: $theme-color;
 }

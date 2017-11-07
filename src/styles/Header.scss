@@ -1,11 +1,10 @@
-@import "../../common/defaults";
 
 .zm-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: $color-green;
+  background-color: $theme-color;
   height: $header-height;
   font-size: 18px;
   color: #fff;
@@ -25,16 +24,23 @@
   height: $header-height;
   left: 0;
   top: 0;
-  background: url('../../assets/icon-zg-header-back.png') no-repeat center;
+  background: url('#{$assetsPath}/icon-header-back.png') no-repeat center;
   background-size: 11px 19px;
 }
 
 .zm-header-btn {
   position: absolute;
   top: 0;
+  left: auto;
   right: 0;
   height: $header-height;
   padding: 0 15px;
   display: flex;
   align-items: center;
+  font-size: 16px;
+}
+
+.zm-header-btn.left {
+  left: 0;
+  right: auto;
 }

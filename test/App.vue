@@ -6,6 +6,12 @@
         </div>
 
         <div class="demo-list">
+            <div class="demo-list-item" @click="link('/theme')">
+                <div class="demo-list-item-icon icon-theme"></div> Switch Theme
+            </div>
+        </div>
+
+        <div class="demo-list">
             <div class="demo-list-item" @click="link('/header')">
                 <div class="demo-list-item-icon icon-header"></div> Header
             </div>
@@ -44,7 +50,7 @@
         methods: {
             link(path) {
                 this.$router.push(path);
-            },
+            }
         }
     }
 </script>
@@ -141,6 +147,10 @@
 
     .icon-multiple {
         background-image: url('../src/assets/demo/icon-multiple.png');
+    }
+
+    .icon-theme {
+        background-image: url('../src/assets/demo/icon-theme.png');
     }
 
     .demo-btn {

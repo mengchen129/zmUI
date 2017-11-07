@@ -1,12 +1,10 @@
-import Header from './components/Header/Header.vue';
-import Toast from './components/Toast/Toast.vue';
-import Slider from './components/Slider/Slider.vue';
-import Loading from './components/Loading/Loading.vue';
-import NumberKeyboard from './components/NumberKeyboard/NumberKeyboard.vue';
-import SingleSelect from './components/SingleSelect/SingleSelect.vue';
-import MultipleSelect from './components/MultipleSelect/MultipleSelect.vue';
-import './common/utils.scss';
-import './common/transition.scss';
+import Header from './components/Header.vue';
+import Toast from './components/Toast.vue';
+import Slider from './components/Slider.vue';
+import Loading from './components/Loading.vue';
+import NumberKeyboard from './components/NumberKeyboard.vue';
+import SingleSelect from './components/SingleSelect.vue';
+import MultipleSelect from './components/MultipleSelect.vue';
 
 const install = function(Vue) {
     if (install.installed) return;

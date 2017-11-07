@@ -2,6 +2,7 @@
     <div class="zm-header" :class="{inline: inline}">
         <div class="zm-header-back" v-if="back" @click="headerBack"></div>
         <div class="zm-header-btn" v-if="btn" @click="$emit(btn.emit)">{{ btn.text }}</div>
+        <div class="zm-header-btn left" v-if="leftBtn" @click="$emit(leftBtn.emit)">{{ leftBtn.text }}</div>
         <slot></slot>
     </div>
 </template>
@@ -21,6 +22,10 @@
             btn: {
                 type: Object,
                 default: null
+            },
+            leftBtn: {
+                type: Object,
+                default: null,
             }
         },
 
@@ -40,7 +45,3 @@
         }
     }
 </script>
-
-<style lang="sass">
-    @import "Header.scss";
-</style>

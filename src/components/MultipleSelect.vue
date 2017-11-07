@@ -2,7 +2,12 @@
     <div class="zm-multiple-select">
         <transition name="zm-enter-from-right">
             <div class="zm-multiple-select-main" v-show="show">
-                <zm-header back="cancel" :inline="true" v-if="title" :btn="{text: '确定', emit: 'ok'}" @ok="ok" @cancel="cancel">{{ title }}</zm-header>
+                <zm-header
+                           :inline="true"
+                           :btn="{text: '确定', emit: 'ok'}"
+                           :left-btn="{text: '取消', emit: 'cancel'}"
+                           @ok="ok" @cancel="cancel">{{ title }}</zm-header>
+
                 <div class="zm-multiple-select-list">
                     <div class="zm-multiple-select-item"
                          v-for="option in options"
@@ -25,7 +30,7 @@
         props: {
             title: {
                 type: String,
-                default: '',
+                default: '请选择',
             },
             options: {
                 type: Array,
@@ -79,7 +84,3 @@
         }
     }
 </script>
-
-<style lang="sass">
-    @import "MultipleSelect.scss";
-</style>

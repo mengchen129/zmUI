@@ -42,7 +42,3 @@
         }
     }
 </script>
-
-<style lang="sass">
-    @import "Toast.scss";
-</style>

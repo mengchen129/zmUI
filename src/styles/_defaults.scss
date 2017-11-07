@@ -1,0 +1,22 @@
+/* System */
+$assetsPath: '../assets' !default;
+
+/* Themes */
+$theme-color: #33c298 !default;
+$color-text-primary: #333 !default;
+$color-text-medium: #666 !default;
+$color-text-slave: #999 !default;
+
+/* Transitions */
+$transitionDuration: 0.3s !default;
+
+/* Sizes */
+$header-height: 45px;
+
+/* Cascades */
+$shadow-z-index: 40;
+$select-z-index: 41;
+$keyboard-z-index: 41;
+$toast-z-index: 45;
+$loading-z-index: 46;
+

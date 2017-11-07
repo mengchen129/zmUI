@@ -72,7 +72,3 @@
         }
     }
 </script>
-
-<style lang="sass">
-    @import "SingleSelect.scss";
-</style>

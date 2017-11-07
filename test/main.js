@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue';
+
+import DemoTheme from './pages/DemoTheme.vue';
 import DemoHeader from './pages/DemoHeader.vue';
 import DemoToast from './pages/DemoToast.vue';
 import DemoLoading from './pages/DemoLoading.vue';
@@ -8,10 +10,15 @@ import DemoKeyboard from './pages/DemoKeyboard.vue';
 import DemoSingleSelect from './pages/DemoSingleSelect.vue';
 import DemoMultipleSelect from './pages/DemoMultipleSelect.vue';
 
+
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 const routes = [
+    {
+        path: '/theme',
+        component: DemoTheme,
+    },
     {
         path: '/header',
         component: DemoHeader
@@ -46,6 +53,8 @@ const router = new VueRouter({routes});
 
 import zmUI from '../src/index';
 Vue.use(zmUI);
+
+import '../src/styles/index.scss';
 
 new Vue({
     el: '#app',
