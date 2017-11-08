@@ -4,12 +4,14 @@
 
         <p>你选择了：{{ selectedList }}</p>
         <p><button class="demo-btn" @click="showCategorySelect">选择商品分类(最多3项)</button></p>
+        <p><label class="demo-checkbox"><input type="checkbox" v-model="readonly"> 只读</label></p>
 
         <zm-multiple-select
                 ref="categorySelect"
                 title="选择分类"
                 :options="categoryList"
                 :max-selected="3"
+                :readonly="readonly"
                 text-key="name"
                 value-key="id"
                 @value="onCategoryChange"
@@ -30,7 +32,8 @@
                     { id: 5, name: '日用百货' },
                     { id: 6, name: '护肤用品' },
                 ],
-                selectedList: []
+                selectedList: [],
+                readonly: false,
             }
         },
         methods: {

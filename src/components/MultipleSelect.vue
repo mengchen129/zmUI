@@ -4,7 +4,7 @@
             <div class="zm-multiple-select-main" v-show="show">
                 <zm-header
                            :inline="true"
-                           :btn="{text: '确定', emit: 'ok'}"
+                           :btn="readonly ? null : {text: '确定', emit: 'ok'}"
                            :left-btn="{text: '取消', emit: 'cancel'}"
                            @ok="ok" @cancel="cancel">{{ title }}</zm-header>
 
@@ -47,6 +47,10 @@
             maxSelected: {
                 type: Number,
                 default: 10000,
+            },
+            readonly: {
+                type: Boolean,
+                default: false,
             }
         },
         data() {
@@ -71,6 +75,8 @@
                 this.show = false;
             },
             toggleOption(option) {
+                if (this.readonly) return;
+
                 let index = this.selectedList.indexOf(option);
                 if (index === -1) {
                     if (this.selectedList.length >= this.maxSelected) {

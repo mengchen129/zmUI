@@ -169,4 +169,12 @@
     .demo-btn:active {
         background-color: #d8d8d8;
     }
+
+    .demo-checkbox {
+        font-size: 14px;
+    }
+
+    .demo-checkbox input {
+        vertical-align: middle;
+    }
 </style>
