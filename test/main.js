@@ -9,6 +9,7 @@ import DemoSlider from './pages/DemoSlider.vue';
 import DemoKeyboard from './pages/DemoKeyboard.vue';
 import DemoSingleSelect from './pages/DemoSingleSelect.vue';
 import DemoMultipleSelect from './pages/DemoMultipleSelect.vue';
+import DemoDistrictSelect from './pages/DemoDistrictSelect.vue';
 
 
 import VueRouter from 'vue-router';
@@ -46,6 +47,10 @@ const routes = [
     {
         path: '/multiple-select',
         component: DemoMultipleSelect
+    },
+    {
+        path: '/district-select',
+        component: DemoDistrictSelect
     }
 ];
 

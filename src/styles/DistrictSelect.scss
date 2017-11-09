@@ -1,0 +1,37 @@
+.zm-district-select-current-list {
+  display: flex;
+}
+
+.zm-district-select-current {
+  line-height: 44px;
+  margin-right: 32px;
+  min-width: 3em;
+  text-align: center;
+}
+
+.zm-district-select-current.selected {
+  border-bottom: 2px solid $theme-color;
+}
+
+.zm-district-select-list {
+  flex: 1;
+  overflow: hidden;
+  padding: 10px 16px;
+  display: flex;
+  align-items: stretch;
+}
+
+.zm-district-select-list-column {
+  min-width: 3em;
+  margin-right: 32px;
+  overflow: auto;
+}
+
+.zm-district-select-item {
+  line-height: 34px;
+  color: $color-text-medium;
+}
+
+.zm-district-select-item.selected {
+  color: $theme-color;
+}

@@ -33,6 +33,9 @@
             <div class="demo-list-item" @click="link('/multiple-select')">
                 <div class="demo-list-item-icon icon-multiple"></div> Multiple Select
             </div>
+            <div class="demo-list-item" @click="link('/district-select')">
+                <div class="demo-list-item-icon icon-district"></div> District Select
+            </div>
         </div>
 
         <zm-toast></zm-toast>
@@ -153,6 +156,10 @@
 
     .icon-theme {
         background-image: url('../src/assets/demo/icon-theme.png');
+    }
+
+    .icon-district {
+        background-image: url('../src/assets/demo/icon-district.png');
     }
 
     .demo-btn {
