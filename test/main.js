@@ -5,7 +5,7 @@ import DemoTheme from './pages/DemoTheme.vue';
 import DemoHeader from './pages/DemoHeader.vue';
 import DemoToast from './pages/DemoToast.vue';
 import DemoLoading from './pages/DemoLoading.vue';
-import DemoSlider from './pages/DemoSlider.vue';
+import DemoCarousel from './pages/DemoCarousel.vue';
 import DemoKeyboard from './pages/DemoKeyboard.vue';
 import DemoSingleSelect from './pages/DemoSingleSelect.vue';
 import DemoMultipleSelect from './pages/DemoMultipleSelect.vue';
@@ -33,8 +33,8 @@ const routes = [
         component: DemoLoading
     },
     {
-        path: '/slider',
-        component: DemoSlider
+        path: '/carousel',
+        component: DemoCarousel
     },
     {
         path: '/keyboard',

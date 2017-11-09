@@ -16,7 +16,7 @@
 .zm-district-select-list {
   flex: 1;
   overflow: hidden;
-  padding: 10px 16px;
+  padding: 10px 16px 0 16px;
   display: flex;
   align-items: stretch;
 }
@@ -24,6 +24,7 @@
 .zm-district-select-list-column {
   min-width: 3em;
   margin-right: 32px;
+  padding-bottom: 10px;
   overflow: auto;
 }
 
@@ -34,4 +35,11 @@
 
 .zm-district-select-item.selected {
   color: $theme-color;
+}
+
+/* iphone 4/4s/5/5s */
+@media screen and (max-device-width: 320px) {
+  .zm-district-select-current, .zm-district-select-list-column {
+    margin-right: 24px;
+  }
 }

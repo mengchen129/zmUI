@@ -21,8 +21,8 @@
             <div class="demo-list-item" @click="link('/loading')">
                 <div class="demo-list-item-icon icon-loading"></div> Loading
             </div>
-            <div class="demo-list-item" @click="link('/slider')">
-                <div class="demo-list-item-icon icon-slider"></div> Slider
+            <div class="demo-list-item" @click="link('/carousel')">
+                <div class="demo-list-item-icon icon-slider"></div> Carousel
             </div>
             <div class="demo-list-item" @click="link('/keyboard')">
                 <div class="demo-list-item-icon icon-keyboard"></div> Number Keyboard
@@ -88,7 +88,7 @@
     .demo-logo {
         width: 100px;
         height: 100px;
-        background: url('https://raw.githubusercontent.com/mengchen129/zmUI/master/src/assets/icon.png') no-repeat center;
+        background: url('../src/assets/icon.png') no-repeat center;
         background-size: contain;
     }
 

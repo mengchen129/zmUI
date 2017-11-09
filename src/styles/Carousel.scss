@@ -1,27 +1,27 @@
-.zm-slider {
+.zm-carousel {
   width: 100%;
   overflow: hidden;
   position: relative;
 }
 
-.zm-slider-list {
+.zm-carousel-list {
   display: flex;
   flex-wrap: nowrap;
   transition: transform 0.3s ease-out;
 }
 
-.zm-slider-img-wrap {
+.zm-carousel-img-wrap {
   flex-shrink: 0;
   width: 100%;
 }
 
-.zm-slider-img {
+.zm-carousel-img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.zm-slider-points {
+.zm-carousel-points {
   position: absolute;
   bottom: 4px;
   left: 0;
@@ -31,18 +31,18 @@
   justify-content: center;
 }
 
-.zm-slider-point-wrap {
+.zm-carousel-point-wrap {
   padding: 4px;
   cursor: pointer;
 }
 
-.zm-slider-point {
+.zm-carousel-point {
   width: 6px;
   height: 6px;
   border-radius: 6px;
   background-color: rgba(#d8d8d8, 0.5);
 }
 
-.zm-slider-point.highlight {
+.zm-carousel-point.highlight {
   background-color: rgba($theme-color, 0.5);
 }

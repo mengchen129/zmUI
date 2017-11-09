@@ -1,5 +1,5 @@
 <template>
-    <div class="zm-slider"
+    <div class="zm-carousel"
          @touchstart="swipeStart"
          @touchmove="swipeMove"
          @touchend="swipeEnd"
@@ -8,15 +8,15 @@
          @mousemove="swipeMoveMouse"
          @mouseup="swipeEndMouse">
 
-        <div class="zm-slider-list" :style="transformObj">
-            <div class="zm-slider-img-wrap" v-for="item in list">
-                <img class="zm-slider-img" :src="item.url" alt="">
+        <div class="zm-carousel-list" :style="transformObj">
+            <div class="zm-carousel-img-wrap" v-for="item in list">
+                <img class="zm-carousel-img" :src="item.url" alt="">
             </div>
         </div>
 
-        <div class="zm-slider-points">
-            <div class="zm-slider-point-wrap" v-for="i in list.length" @click.stop="sliderTo(i - 1)">
-                <div class="zm-slider-point"
+        <div class="zm-carousel-points">
+            <div class="zm-carousel-point-wrap" v-for="i in list.length" @click.stop="sliderTo(i - 1)">
+                <div class="zm-carousel-point"
                      :class="{highlight: page == i - 1}"></div>
             </div>
         </div>
@@ -47,7 +47,7 @@
     }
 
     export default {
-        name: 'zm-slider',
+        name: 'zm-carousel',
         props: {
             // 数据列表 {url-图片链接, href-跳转链接}
             list: {
@@ -157,7 +157,7 @@
                 var moveSpeed = moveDistanceAbs / (moveDuration / 1000);
 
                 if (this.manualOffset == 0) {       // 如果未引起左右偏移则尝试触发 click
-                    this.slideClick();
+                    this.carouselClick();
                 }
 
                 // 重置参数, 如果未达到翻页条件则复位
@@ -185,12 +185,12 @@
                     this.autoPlayTimer = null;
                 }
             },
-            slideClick() {      // 如果有 href 属性则跳转，否则 $emit 事件
+            carouselClick() {      // 如果有 href 属性则跳转，否则 $emit 事件
                 let item = this.list[this.page];
                 if (item.href) {
                     location.href = item.href;
                 } else {
-                    this.$emit('slider-click', item);
+                    this.$emit('carousel-click', item);
                 }
             }
         },
