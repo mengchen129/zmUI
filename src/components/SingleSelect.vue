@@ -18,14 +18,17 @@
         </transition>
 
         <transition name="zm-shadow">
-            <div class="zm-shadow" v-show="show" @click="show = false"></div>
+            <div class="zm-shadow" v-show="show" @click="cancel"></div>
         </transition>
     </div>
 </template>
 
 <script>
+    import ModalBack from '../plugins/ModalBack';
+
     export default {
         name: 'zm-single-select',
+        mixins: [ModalBack],
         props: {
             options: {
                 type: Array,
@@ -61,6 +64,9 @@
             ok() {
                 this.show = false;
                 this.$emit('value', this.selected);
+            },
+            cancel() {
+                this.show = false;
             },
             chooseOption(option) {
                 this.selected = option;

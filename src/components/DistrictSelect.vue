@@ -43,8 +43,11 @@
 </template>
 
 <script>
+    import ModalBack from '../plugins/ModalBack';
+
     export default {
         name: 'zm-district-select',
+        mixins: [ModalBack],
         props: {
             options: {
                 type: Array,

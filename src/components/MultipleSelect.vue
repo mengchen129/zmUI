@@ -25,8 +25,11 @@
 </template>
 
 <script>
+    import ModalBack from '../plugins/ModalBack';
+
     export default {
         name: 'zm-multiple-select',
+        mixins: [ModalBack],
         props: {
             title: {
                 type: String,

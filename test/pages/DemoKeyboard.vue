@@ -22,7 +22,7 @@
         },
         methods: {
             showNumberKeyboard() {
-                this.$refs.board.show(this.number);
+                this.$refs.board.open(this.number);
             },
             onNumberInput(number) {
                 this.numberTemp = number;

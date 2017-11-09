@@ -130,6 +130,9 @@ Trigger when ok button clicked, contains the final result
 
 
 ## Changelog
+### v0.3.3 (2017-11-09)
+- Add component `DistrictSelect`
+- Add back handling on modal-like components
 ### v0.3.0 (2017-11-07)
 - Support Theme customized
 - Adjust directory structure

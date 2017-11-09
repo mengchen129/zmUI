@@ -1,7 +1,7 @@
 <template>
     <div>
         <transition name="zm-enter-from-bottom">
-        <div class="zm-number-keyboard" v-if="showing" @click.stop>
+        <div class="zm-number-keyboard" v-if="show" @click.stop>
             <slot></slot>
             <table class="zm-keyboard-table">
                 <tbody>
@@ -33,14 +33,17 @@
         </transition>
 
         <transition name="zm-shadow">
-            <div class="zm-shadow" v-if="showing" @click="cancel"></div>
+            <div class="zm-shadow" v-if="show" @click="cancel"></div>
         </transition>
     </div>
 </template>
 
 <script>
+    import ModalBack from '../plugins/ModalBack';
+
     export default {
         name: 'zm-number-keyboard',
+        mixins: [ModalBack],
         props: {
             maxValue: {
                 type: Number,
@@ -53,7 +56,7 @@
         },
         data() {
             return {
-                showing: false,
+                show: false,
                 value: '',
             }
         },
@@ -63,6 +66,10 @@
             }
         },
         methods: {
+            open(initValue) {
+                this.value = String(initValue || '');
+                this.show = true;
+            },
             append(number) {
                 let newValue = this.value + String(number);
                 if (parseFloat(newValue) > this.maxValue) {
@@ -88,12 +95,8 @@
                     this.value = this.value.substring(0, this.value.length - 1);
                 }
             },
-            show(initValue) {
-                this.value = String(initValue || '');
-                this.showing = true;
-            },
             hide() {
-                this.showing = false;
+                this.show = false;
             },
             cancel() {
                 this.$emit('cancel', this.value);
