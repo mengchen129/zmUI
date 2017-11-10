@@ -103,27 +103,39 @@
                 });
             },
             chooseProvince(item) {
+                // 切换了省，将市和县清除
+                if (item !== this.province) {
+                    this.city = null;
+                    this.county = null;
+                }
+
                 this.province = item;
                 this.level = 1;
-                this.county = null;
 
                 // 如果市级只有一个，则自动选中它
                 if (this.province[this.childrenKey].length === 1) {
                     this.chooseCity(this.province[this.childrenKey][0]);
                 }
 
-                // 根据第二列的实际宽度来确定标题宽度
+                // 根据第二列的实际宽度来确定标题宽度，并重置滚动条
                 this.$nextTick(() => {
                     this.$refs.citySelectColumn.style.width = this.$refs.cityListColumn.offsetWidth + 'px';
+                    this.$refs.cityListColumn.scrollTop = 0;
                 });
             },
             chooseCity(item) {
+                // 切换了市，将县清除
+                if (item !== this.city) {
+                    this.county = null;
+                }
+
                 this.city = item;
                 this.level = 2;
 
-                // 根据第三列的实际宽度来确定标题宽度
+                // 根据第三列的实际宽度来确定标题宽度，并重置滚动条
                 this.$nextTick(() => {
                     this.$refs.countySelectColumn.style.width = this.$refs.countyListColumn.offsetWidth + 'px';
+                    this.$refs.countyListColumn.scrollTop = 0;
                 });
             },
             chooseCounty(item) {
