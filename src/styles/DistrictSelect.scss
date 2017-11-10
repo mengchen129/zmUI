@@ -2,11 +2,22 @@
   display: flex;
 }
 
-.zm-district-select-current {
-  line-height: 44px;
+.zm-district-select-current-wrap {
   margin-right: 32px;
   min-width: 3em;
-  text-align: center;
+  max-width: 4em;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.zm-district-select-current-list > .zm-district-select-current-wrap:first-child {
+  max-width: 3em;
+}
+
+.zm-district-select-current {
+  line-height: 43px;
+  white-space: nowrap;
 }
 
 .zm-district-select-current.selected {
@@ -23,13 +34,21 @@
 
 .zm-district-select-list-column {
   min-width: 3em;
+  max-width: 4em;
   margin-right: 32px;
   padding-bottom: 10px;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.zm-district-select-list > .zm-district-select-list-column:first-child {
+  max-width: 3em;
 }
 
 .zm-district-select-item {
   line-height: 34px;
+  white-space: nowrap;
+  overflow: hidden;
   color: $color-text-medium;
 }
 

@@ -4,9 +4,15 @@
             <div class="zm-single-select-main" v-show="show">
                 <div class="zm-single-select-header">
                     <div class="zm-district-select-current-list">
-                        <div class="zm-district-select-current" :class="{selected: level == 1}">{{ province && province[textKey] || '所在省'}}</div>
-                        <div class="zm-district-select-current" :class="{selected: level == 2}">{{ city && city[textKey] || '所在市'}}</div>
-                        <div class="zm-district-select-current" :class="{selected: level == 3}">{{ county && county[textKey] || '所在县'}}</div>
+                        <div class="zm-district-select-current-wrap">
+                            <div class="zm-district-select-current" :class="{selected: level == 1}">{{ province && province[textKey] || '所在省'}}</div>
+                        </div>
+                        <div class="zm-district-select-current-wrap" ref="citySelectColumn">
+                            <div class="zm-district-select-current" :class="{selected: level == 2}">{{ city && city[textKey] || '所在市'}}</div>
+                        </div>
+                        <div class="zm-district-select-current-wrap" ref="countySelectColumn">
+                            <div class="zm-district-select-current" :class="{selected: level == 3}">{{ county && county[textKey] || '所在县'}}</div>
+                        </div>
                     </div>
                     <button class="zm-single-select-ok" @click="ok" :disabled="!isSelectFinish">确定</button>
                 </div>
@@ -18,14 +24,14 @@
                              :class="{selected: province == item}"
                         >{{ item[textKey] }}</div>
                     </div>
-                    <div class="zm-district-select-list-column" v-if="province && province[childrenKey]" v-show="level >= 1">
+                    <div class="zm-district-select-list-column" ref="cityListColumn" v-if="province && province[childrenKey]" v-show="level >= 1">
                         <div class="zm-district-select-item"
                              v-for="item in province[childrenKey]"
                              @click="chooseCity(item)"
                              :class="{selected: city == item}"
                         >{{ item[textKey] }}</div>
                     </div>
-                    <div class="zm-district-select-list-column" v-if="city && city[childrenKey]" v-show="level >= 2">
+                    <div class="zm-district-select-list-column" ref="countyListColumn" v-if="city && city[childrenKey]" v-show="level >= 2">
                         <div class="zm-district-select-item"
                              v-for="item in city[childrenKey]"
                              @click="chooseCounty(item)"
@@ -99,10 +105,26 @@
             chooseProvince(item) {
                 this.province = item;
                 this.level = 1;
+                this.county = null;
+
+                // 如果市级只有一个，则自动选中它
+                if (this.province[this.childrenKey].length === 1) {
+                    this.chooseCity(this.province[this.childrenKey][0]);
+                }
+
+                // 根据第二列的实际宽度来确定标题宽度
+                this.$nextTick(() => {
+                    this.$refs.citySelectColumn.style.width = this.$refs.cityListColumn.offsetWidth + 'px';
+                });
             },
             chooseCity(item) {
                 this.city = item;
                 this.level = 2;
+
+                // 根据第三列的实际宽度来确定标题宽度
+                this.$nextTick(() => {
+                    this.$refs.countySelectColumn.style.width = this.$refs.countyListColumn.offsetWidth + 'px';
+                });
             },
             chooseCounty(item) {
                 this.county = item;

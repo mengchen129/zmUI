@@ -7,8 +7,8 @@
 
         <zm-district-select
                 :options="districtList"
-                text-key="area_name"
-                value-key="area_id"
+                text-key="name"
+                value-key="id"
                 children-key="children"
                 ref="districtSelect"
                 @value="onDistrictChange"
@@ -17,12 +17,12 @@
 </template>
 
 <script>
-    import areaTreeData from '../assets/areaTree';
+    import axios from 'axios';
 
     export default {
         data() {
             return {
-                districtList: areaTreeData,
+                districtList: [],
                 district: null,
                 districtId: null,
             }
@@ -34,8 +34,13 @@
             onDistrictChange(value) {
                 console.log(value);
                 this.district = value.district.join(' ');
-                this.districtId = value.area_id;
+                this.districtId = value.id;
             }
+        },
+        mounted() {
+            axios.get('https://raw.githubusercontent.com/mengchen129/zmUI/master/test/assets/areaTree.json').then(resp => {
+                this.districtList = resp.data;
+            })
         }
     }
 </script>
