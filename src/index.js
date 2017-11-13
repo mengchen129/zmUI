@@ -7,7 +7,7 @@ import SingleSelect from './components/SingleSelect.vue';
 import MultipleSelect from './components/MultipleSelect.vue';
 import DistrictSelect from './components/DistrictSelect.vue';
 
-const install = function(Vue) {
+function install(Vue) {
     if (install.installed) return;
 
     Vue.component(Header.name, Header);
@@ -18,7 +18,7 @@ const install = function(Vue) {
     Vue.component(SingleSelect.name, SingleSelect);
     Vue.component(MultipleSelect.name, MultipleSelect);
     Vue.component(DistrictSelect.name, DistrictSelect);
-};
+}
 
 export default {
     install: install
