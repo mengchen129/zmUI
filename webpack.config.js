@@ -1,10 +1,13 @@
 var path = require('path')
 var webpack = require('webpack')
+var env = process.env.NODE_ENV;
+var isProduction = (env === 'production');
+var isDemo = (env === 'demo');
 
 module.exports = {
-    entry: './test/main.js',
+    entry: isProduction ? './src/index.js' : './test/main.js',
     output: {
-        path: path.resolve(__dirname, './dist'),
+        path: path.resolve(__dirname, isProduction ? './dist' : './demo_build'),
         publicPath: '/dist/',
         filename: 'build.js'
     },
@@ -58,7 +61,7 @@ module.exports = {
     devtool: '#eval-source-map'
 }
 
-if (process.env.NODE_ENV === 'production') {
+if (isProduction || isDemo) {
     module.exports.devtool = '#source-map'
     // http://vue-loader.vuejs.org/en/workflow/production.html
     module.exports.plugins = (module.exports.plugins || []).concat([

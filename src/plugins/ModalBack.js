@@ -9,7 +9,7 @@
  * 组件使用 show 属性来控制自身的显示与隐藏
  */
 export default  {
-    data: function() {
+    data() {
         return {
             autoHistoryBack: true,      // 是否自动执行 history.back (在 popstate 被触发时，将被设置为 false)
         }
@@ -29,11 +29,11 @@ export default  {
         }
     },
     methods: {
-        onPopState: function() {
+        onPopState() {
             this.autoHistoryBack = false;
             this.show = false;
         },
-        pushHistory: function(stateData) {
+        pushHistory(stateData) {
             history.pushState(stateData || {type: this.$options.name}, null);
             window.addEventListener('popstate', this.onPopState);
         }
