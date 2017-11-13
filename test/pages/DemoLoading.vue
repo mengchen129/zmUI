@@ -19,16 +19,16 @@
         },
         methods: {
             showLoading() {
-                this.$loading.show();
+                this.$loading().show();
             },
             showLoadingModal() {
-                this.$loading.show('提交中', true);
+                this.$loading().show('提交中', true);
                 setTimeout(() => {
                     this.hideLoading();
                 }, 2000);
             },
             hideLoading() {
-                this.$loading.hide();
+                this.$loading().hide();
             },
         }
     }

@@ -1,7 +1,7 @@
 {
   "name": "zmui",
   "description": "A Mobile UI Components Library based on Vue.js",
-  "version": "0.3.7",
+  "version": "0.4.0",
   "author": "mengchen <mengchen@zhimadj.com>",
   "licence": "MIT",
   "repository": {

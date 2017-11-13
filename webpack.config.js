@@ -9,7 +9,8 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, isProduction ? './dist' : './demo_build'),
         publicPath: '/dist/',
-        filename: 'build.js'
+        filename: 'build.js',
+        libraryTarget: "umd",
     },
     module: {
         rules: [

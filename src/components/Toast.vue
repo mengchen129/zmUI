@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import Vue from 'vue';
+    import Api from '../plugins/GlobalApi';
 
     export default {
 
@@ -24,7 +24,7 @@
             };
         },
         mounted: function() {
-            Vue.prototype.$toast = {
+            Api.toast = {
                 show: this.show
             };
         },
@@ -39,6 +39,6 @@
                     this.showing = false;
                 }, duration || this.$options.LENGTH_NORMAL);
             }
-        }
+        },
     }
 </script>

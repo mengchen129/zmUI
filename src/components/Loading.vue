@@ -10,7 +10,7 @@
 </template>
 
 <script>
-    import Vue from 'vue';
+    import Api from '../plugins/GlobalApi';
 
     export default {
         name: 'zm-loading',
@@ -22,7 +22,7 @@
             }
         },
         mounted() {
-            Vue.prototype.$loading = {
+            Api.loading = {
                 show: this.show,
                 hide: this.hide,
             };

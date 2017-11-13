@@ -21,7 +21,7 @@
         },
         methods: {
             showToast(duration) {
-                this.$toast.show('Hello, World', Toast[duration]);
+                this.$toast().show('Hello, World', Toast[duration]);
             },
         }
     }

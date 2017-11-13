@@ -7,6 +7,8 @@ import SingleSelect from './components/SingleSelect.vue';
 import MultipleSelect from './components/MultipleSelect.vue';
 import DistrictSelect from './components/DistrictSelect.vue';
 
+import Api from './plugins/GlobalApi';
+
 const install = function(Vue) {
     if (install.installed) return;
 
@@ -18,6 +20,9 @@ const install = function(Vue) {
     Vue.component(SingleSelect.name, SingleSelect);
     Vue.component(MultipleSelect.name, MultipleSelect);
     Vue.component(DistrictSelect.name, DistrictSelect);
+
+    Vue.prototype.$toast = () => Api.toast;
+    Vue.prototype.$loading = () => Api.loading;
 };
 
 export default {
