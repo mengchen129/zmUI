@@ -73,13 +73,13 @@
             append(number) {
                 let newValue = this.value + String(number);
                 if (parseFloat(newValue) > this.maxValue) {
-                    this.$toast.show('最大值限制为' + this.maxValue);
+                    this.$toast().show('最大值限制为' + this.maxValue);
                     return;
                 }
 
                 let dotIndex = newValue.indexOf('.');
                 if (dotIndex >= 0 && newValue.length - 1 - dotIndex > this.maxDecimal) {
-                    this.$toast.show('最大小数位为' + this.maxDecimal);
+                    this.$toast().show('最大小数位为' + this.maxDecimal);
                     return;
                 }
 

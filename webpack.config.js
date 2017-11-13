@@ -42,7 +42,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                loader: 'vue-style-loader!css-loader!sass-loader',
+                loader: 'vue-style-loader!css-loader!postcss-loader!sass-loader',
             }
         ]
     },

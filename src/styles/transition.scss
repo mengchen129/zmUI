@@ -4,7 +4,7 @@
 .zm-shadow-enter-active, .zm-shadow-leave-active {
   transition: opacity $transitionDuration;
 }
-.zm-shadow-enter, .zm-shadow-leave-active {
+.zm-shadow-enter, .zm-shadow-leave-to {
   opacity: 0;
 }
 
@@ -44,8 +44,10 @@
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
   bottom: 0;
-  right: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: $shadow-z-index;
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
 }

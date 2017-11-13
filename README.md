@@ -8,6 +8,9 @@ A Mobile UI Components Library based on Vue.js
 [View Demo](https://mengchen129.github.io/zmui/)
 
 ## Install
+```
+npm install zmui --save
+```
 ```javascript
 import zmUI from 'zmui';
 Vue.use(zmUI);
@@ -32,13 +35,13 @@ Mount `zm-toast` on the root vue instance:
 ```
 Invoke `$toast.show` on any vue instance:
 ```javascript
-this.$toast.show('This is message');
+this.$toast().show('This is message');
 ````
 
 #### Options
 configure the display duration, for example 2 seconds:
 ```javascript
-this.$toast.show('This is message', 2000);
+this.$toast().show('This is message', 2000);
 ````
 The default duration is 3 seconds (3000ms), You can use constants defined in the component:
 - LENGTH_SHORT - 1 second
@@ -46,7 +49,7 @@ The default duration is 3 seconds (3000ms), You can use constants defined in the
 - LENGTH_LONG - 5 seconds
 ```javascript
 import { Toast } from 'zmui';
-this.$toast.show('This is message', Toast.LENGTH_SHORT);
+this.$toast().show('This is message', Toast.LENGTH_SHORT);
 ````
 
 ### `Slider`
@@ -84,14 +87,14 @@ Mount `zm-loading` on the root vue instance:
 ```
 Invoke `$loading.show` or `$loading.hide` on any vue instance:
 ```javascript
-this.$loading.show('Loading...');
-this.$loading.hide();
+this.$loading().show('Loading...');
+this.$loading().hide();
 ```
 
 #### Options
 You can pass the second parameter to `show` to set the loading icon be modal or not (Not modal by default).
 ```javascript
-this.$loading.show('Loading...', true);
+this.$loading().show('Loading...', true);
 ````
 
 ### `NumberKeyboard`

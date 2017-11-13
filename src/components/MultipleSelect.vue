@@ -83,7 +83,7 @@
                 let index = this.selectedList.indexOf(option);
                 if (index === -1) {
                     if (this.selectedList.length >= this.maxSelected) {
-                        this.$toast && this.$toast.show('最多可选' + this.maxSelected + '项', 1500);
+                        this.$toast && this.$toast().show('最多可选' + this.maxSelected + '项', 1500);
                     } else {
                         this.selectedList.push(option);
                     }
