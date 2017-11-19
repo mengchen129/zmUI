@@ -133,6 +133,9 @@ Trigger when ok button clicked, contains the final result
 
 
 ## Changelog
+### v0.4.1 (2017-11-13)
+- Remove explicit dependency of vue
+- Modify the API of `Toast` and `Loading`
 ### v0.3.3 (2017-11-09)
 - Add component `DistrictSelect`
 - Add back handling on modal-like components
