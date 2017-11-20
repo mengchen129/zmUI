@@ -49,5 +49,9 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: $shadow-z-index;
   transform: translate3d(0, 0, 0);
-  opacity: 1;
+}
+
+/* Fallback: 遮罩zm-shadow在 Android 4.x 系统浏览器下无法显示（疑难问题），增加 opacity:1让其出现并去除动画效果 */
+.no-transition {
+  opacity: 1 !important;
 }

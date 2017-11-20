@@ -133,6 +133,8 @@ Trigger when ok button clicked, contains the final result
 
 
 ## Changelog
+### v0.4.2 (2017-11-20)
+- Add Fallback.js for low android versions on css transitions
 ### v0.4.1 (2017-11-13)
 - Remove explicit dependency of vue
 - Modify the API of `Toast` and `Loading`

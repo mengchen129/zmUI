@@ -19,17 +19,18 @@
         </transition>
 
         <transition name="zm-shadow">
-            <div class="zm-shadow" v-show="show" @click="show = false"></div>
+            <div class="zm-shadow" :class="{'no-transition': lowAndroidFallback}" v-show="show" @click="show = false"></div>
         </transition>
     </div>
 </template>
 
 <script>
     import ModalBack from '../plugins/ModalBack';
+    import Fallback from '../plugins/Fallback';
 
     export default {
         name: 'zm-multiple-select',
-        mixins: [ModalBack],
+        mixins: [ModalBack, Fallback],
         props: {
             title: {
                 type: String,

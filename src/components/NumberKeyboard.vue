@@ -33,17 +33,18 @@
         </transition>
 
         <transition name="zm-shadow">
-            <div class="zm-shadow" v-if="show" @click="cancel"></div>
+            <div class="zm-shadow" :class="{'no-transition': lowAndroidFallback}" v-if="show" @click="cancel"></div>
         </transition>
     </div>
 </template>
 
 <script>
     import ModalBack from '../plugins/ModalBack';
+    import Fallback from '../plugins/Fallback';
 
     export default {
         name: 'zm-number-keyboard',
-        mixins: [ModalBack],
+        mixins: [ModalBack, Fallback],
         props: {
             maxValue: {
                 type: Number,
