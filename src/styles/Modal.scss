@@ -1,0 +1,96 @@
+@import "defaults";
+@import "mixin";
+
+/* 使用top,left,bottom,right设置0, 并且margin:auto 可实现垂直居中 */
+.zm-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: $modal-z-index;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.zm-modal-dialog {
+  background-color: #fff;
+  width: 80%;
+  height: auto;
+  padding-top: 20px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: $color-text-primary;
+  overflow: hidden;
+  -webkit-user-select: none;
+}
+
+#v-modal-dialog * {
+  box-sizing: border-box;
+}
+
+.zm-modal-footer {
+  text-align: right;
+  display: flex;
+  height: 50px;
+  @include borderTop1dp(#dadada);   /* 为footer绘制顶部物理像素1px的边框 */
+}
+
+.zm-modal-btn {
+  flex: 1;
+  border: none;
+  background-color: #ffffff;
+  outline: none;
+  font-size: 16px;
+}
+
+.zm-modal-btn.primary {
+  color: $theme-color;
+}
+
+.zm-modal-btn.slave {
+  color: $color-text-medium;
+  @include borderRight1dp(#dadada);    /* 为取消按钮绘制右侧物理像素1px的边框 */
+}
+
+.zm-modal-btn:hover, .zm-modal-btn:active {
+  background-color: #eeeeee;
+}
+
+.zm-modal-title {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.zm-modal-body {
+  font-size: 15px;
+  text-align: center;
+  line-height: 22px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  white-space: normal;
+}
+
+.zm-modal-prompt-form {
+  margin-top: 10px;
+}
+
+.zm-modal-input {
+  height: 30px;
+  border: 1px solid #eaeaea;
+  border-radius: 2px;
+  padding: 0 5px;
+  outline: none;
+  text-align: center;
+  background-color: #fff;
+  font-size: 15px;
+  display: block;
+  width: 100%;
+}
+
+.zm-modal-input:focus {
+  border-color: $theme-color;
+}

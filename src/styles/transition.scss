@@ -55,3 +55,11 @@
 .no-transition {
   opacity: 1 !important;
 }
+
+/* Modal */
+.zm-modal-enter-active, .zm-modal-leave-active {
+  transition: opacity $transitionDuration;
+}
+.zm-modal-enter, .zm-modal-leave-active {
+  opacity: 0
+}

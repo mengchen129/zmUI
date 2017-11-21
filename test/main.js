@@ -10,6 +10,8 @@ import DemoKeyboard from './pages/DemoKeyboard.vue';
 import DemoSingleSelect from './pages/DemoSingleSelect.vue';
 import DemoMultipleSelect from './pages/DemoMultipleSelect.vue';
 import DemoDistrictSelect from './pages/DemoDistrictSelect.vue';
+import DemoNavigation from './pages/DemoNavigation.vue';
+import DemoModal from './pages/DemoModal.vue';
 
 
 import VueRouter from 'vue-router';
@@ -51,6 +53,14 @@ const routes = [
     {
         path: '/district-select',
         component: DemoDistrictSelect
+    },
+    {
+        path: '/navigation',
+        component: DemoNavigation
+    },
+    {
+        path: '/modal',
+        component: DemoModal,
     }
 ];
 

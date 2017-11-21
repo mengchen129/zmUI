@@ -6,6 +6,8 @@ import NumberKeyboard from './components/NumberKeyboard.vue';
 import SingleSelect from './components/SingleSelect.vue';
 import MultipleSelect from './components/MultipleSelect.vue';
 import DistrictSelect from './components/DistrictSelect.vue';
+import Navigation from './components/Navigation.vue';
+import Modal from './components/Modal.vue';
 
 import Api from './plugins/GlobalApi';
 
@@ -20,13 +22,29 @@ const install = function(Vue) {
     Vue.component(SingleSelect.name, SingleSelect);
     Vue.component(MultipleSelect.name, MultipleSelect);
     Vue.component(DistrictSelect.name, DistrictSelect);
+    Vue.component(Navigation.name, Navigation);
+    Vue.component(Modal.name, Modal);
 
     Vue.prototype.$toast = () => Api.toast;
     Vue.prototype.$loading = () => Api.loading;
+    Vue.prototype.$alert = (...args) => Api.alert(...args);
+    Vue.prototype.$confirm = (...args) => Api.confirm(...args);
+    Vue.prototype.$prompt = (...args) => Api.prompt(...args);
 };
 
 export default {
     install
 };
 
-export { Header, Toast, Carousel, Loading, NumberKeyboard, SingleSelect, MultipleSelect, DistrictSelect };
+export {
+    Header,
+    Toast,
+    Carousel,
+    Loading,
+    NumberKeyboard,
+    SingleSelect,
+    MultipleSelect,
+    DistrictSelect,
+    Navigation,
+    Modal
+};

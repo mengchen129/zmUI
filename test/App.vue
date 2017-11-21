@@ -36,6 +36,12 @@
             <div class="demo-list-item" @click="link('/district-select')">
                 <div class="demo-list-item-icon icon-district"></div> District Select
             </div>
+            <div class="demo-list-item" @click="link('/navigation')">
+                <div class="demo-list-item-icon icon-navigation"></div> Navigation
+            </div>
+            <div class="demo-list-item" @click="link('/modal')">
+                <div class="demo-list-item-icon icon-modal"></div> Modal
+            </div>
         </div>
 
         <zm-toast></zm-toast>
@@ -162,6 +168,14 @@
         background-image: url('../src/assets/demo/icon-district.png');
     }
 
+    .icon-navigation {
+        background-image: url('../src/assets/demo/icon-navigation.png');
+    }
+
+    .icon-modal {
+        background-image: url('../src/assets/demo/icon-modal.png');
+    }
+
     .demo-btn {
         padding: 10px 20px;
         display: block;
@@ -183,5 +197,10 @@
 
     .demo-checkbox input {
         vertical-align: middle;
+    }
+
+    .demo-navigation-parent {
+        background-color: #f6f6f6;
+        margin-top: 10px;
     }
 </style>

@@ -1,0 +1,32 @@
+@import "defaults";
+
+.zm-navigation {
+  display: flex;
+  align-items: stretch;
+}
+
+.zm-navigation-item-wrap {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.zm-navigation-item {
+  color: $color-text-medium;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 4px;
+  border-bottom: 4px solid transparent;
+}
+
+.zm-navigation-item.flex {
+  flex: auto;
+}
+
+.zm-navigation-item.selected {
+  color: $theme-color;
+  border-bottom-color: $theme-color;
+}
