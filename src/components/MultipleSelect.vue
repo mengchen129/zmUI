@@ -2,11 +2,13 @@
     <div class="zm-multiple-select">
         <transition name="zm-enter-from-right">
             <div class="zm-multiple-select-main" v-show="show">
-                <zm-header
-                           :inline="true"
-                           :btn="readonly ? null : {text: '确定', emit: 'ok'}"
-                           :left-btn="{text: '取消', emit: 'cancel'}"
-                           @ok="ok" @cancel="cancel">{{ title }}</zm-header>
+                <div>
+                    <zm-header
+                               :inline="true"
+                               :btn="readonly ? null : {text: '确定', emit: 'ok'}"
+                               :left-btn="{text: '取消', emit: 'cancel'}"
+                               @ok="ok" @cancel="cancel">{{ title }}</zm-header>
+                </div>
 
                 <div class="zm-multiple-select-list">
                     <div class="zm-multiple-select-item"
