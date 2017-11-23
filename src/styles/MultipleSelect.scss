@@ -13,6 +13,11 @@
   align-items: stretch;
 }
 
+.zm-multiple-select-header {
+  height: $header-height;
+  flex-shrink: 0;
+}
+
 .zm-multiple-select-list {
   flex: auto;
   overflow: auto;

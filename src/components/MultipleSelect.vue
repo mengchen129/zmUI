@@ -2,7 +2,7 @@
     <div class="zm-multiple-select">
         <transition name="zm-enter-from-right">
             <div class="zm-multiple-select-main" v-show="show">
-                <div>
+                <div class="zm-multiple-select-header">
                     <zm-header
                                :inline="true"
                                :btn="readonly ? null : {text: '确定', emit: 'ok'}"
