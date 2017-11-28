@@ -203,4 +203,8 @@
         background-color: #f6f6f6;
         margin-top: 10px;
     }
+
+    .demo-ul li {
+        padding: 10px 0;
+    }
 </style>

@@ -133,6 +133,8 @@ Trigger when ok button clicked, contains the final result
 
 
 ## Changelog
+### v0.5.3 (2017-11-28)
+- Optimize the click event triggering of `Carousel` 
 ### v0.5.0 (2017-11-21)
 - Add component `Navigation` and `Modal`
 ### v0.4.3 (2017-11-20)

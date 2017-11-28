@@ -9,13 +9,13 @@
          @mouseup="swipeEndMouse">
 
         <div class="zm-carousel-list" :style="transformObj">
-            <div class="zm-carousel-img-wrap" v-for="item in list">
+            <div class="zm-carousel-img-wrap" v-for="item in list" @click.stop="carouselClick">
                 <img class="zm-carousel-img" :src="item.url" alt="">
             </div>
         </div>
 
         <div class="zm-carousel-points">
-            <div class="zm-carousel-point-wrap" v-for="i in list.length" @click.stop="sliderTo(i - 1)">
+            <div class="zm-carousel-point-wrap" v-for="i in list.length">
                 <div class="zm-carousel-point"
                      :class="{highlight: page == i - 1}"></div>
             </div>
@@ -67,6 +67,8 @@
                 manualOffset: 0,    // 手动滑动引起的偏移值(px)
                 startX: 0,          // 手动偏移初始X坐标(px)
                 startY: 0,          // 手动偏移初始Y坐标(px)
+                diffX: 0,           // 实时偏移X坐标(px)
+                diffY: 0,           // 实时偏移Y坐标(px)
                 moveStartTime: 0,   // 手动偏移初始触发时间(timestamp)
 
                 slideParams: {
@@ -111,6 +113,8 @@
             swipeStart(e) {
                 this.startX = getClientX(e);
                 this.startY = getClientY(e);
+                this.diffX = 0;
+                this.diffY = 0;
 
                 this.autoPlayPause();
             },
@@ -123,11 +127,13 @@
                 if (!isMobile) {
                     e.preventDefault();             // PC: 阻止默认行为, 防止产生拖拽图片; Mobile: 不阻止,否则竖向滚动将无法触发
                 }
-                var moveX = getClientX(e);
-                var moveY = getClientY(e);
-                var diffX = moveX - this.startX;
-                var diffY = moveY - this.startY;
-                var startMoveDistance = this.slideParams.startMoveDistance;
+                let moveX = getClientX(e);
+                let moveY = getClientY(e);
+                let diffX = moveX - this.startX;
+                let diffY = moveY - this.startY;
+                this.diffX = diffX;
+                this.diffY = diffY;
+                let startMoveDistance = this.slideParams.startMoveDistance;
 
                 // 最小滑动距离未达到或者纵向滑动的2倍高于横向滑动
                 if (Math.abs(diffX) < startMoveDistance || Math.abs(diffX) < Math.abs(diffY) * 2) {
@@ -150,15 +156,11 @@
             },
             swipeEnd(e) {
                 document.removeEventListener('touchmove', docTouchStart);
-                var endX = getClientX(e);
-                var moveDistance = endX - this.startX;
-                var moveDistanceAbs = Math.abs(moveDistance);
-                var moveDuration = Math.abs(Date.now() - this.moveStartTime);
-                var moveSpeed = moveDistanceAbs / (moveDuration / 1000);
-
-                if (this.manualOffset == 0) {       // 如果未引起左右偏移则尝试触发 click
-                    this.carouselClick();
-                }
+                let endX = getClientX(e);
+                let moveDistance = endX - this.startX;
+                let moveDistanceAbs = Math.abs(moveDistance);
+                let moveDuration = Math.abs(Date.now() - this.moveStartTime);
+                let moveSpeed = moveDistanceAbs / (moveDuration / 1000);
 
                 // 重置参数, 如果未达到翻页条件则复位
                 this.manualOffset = 0;
@@ -186,6 +188,11 @@
                 }
             },
             carouselClick() {      // 如果有 href 属性则跳转，否则 $emit 事件
+                // PC 端在图片上滑动会始终触发 click，这里需要根据是否有滑动做屏蔽
+                if (!isMobile && (this.diffX || this.diffY)) {
+                    return;
+                }
+
                 let item = this.list[this.page];
                 if (item.href) {
                     location.href = item.href;

@@ -6,6 +6,7 @@
   width: 100%;
   background-color: $theme-color;
   height: $header-height;
+  z-index: $header-z-index;
   font-size: 18px;
   color: #fff;
   display: flex;

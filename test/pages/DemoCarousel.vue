@@ -6,6 +6,25 @@
         <div style="padding: 10px;">
             <p>同时支持PC鼠标和移动手势的滑动操作，支持滑动灵敏度配置</p>
             <p>PS：点击第1/3/5张图片跳转链接；点击第2/4张弹出alert</p>
+            <p>当滑动方向倾向上下时，触发默认滚动行为，而不触发左右轮播</p>
+            <div>
+                <ul class="demo-ul">
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                    <li>Item 4</li>
+                    <li>Item 5</li>
+                    <li>Item 6</li>
+                    <li>Item 7</li>
+                    <li>Item 8</li>
+                    <li>Item 9</li>
+                    <li>Item 10</li>
+                    <li>Item 11</li>
+                    <li>Item 12</li>
+                    <li>Item 13</li>
+                    <li>Item 14</li>
+                </ul>
+            </div>
         </div>
     </div>
 </template>
