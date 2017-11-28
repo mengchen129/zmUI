@@ -133,6 +133,8 @@ Trigger when ok button clicked, contains the final result
 
 
 ## Changelog
+### v0.5.4 (2017-11-28)
+- Assign extended objects to Vue itself as well as Vue.prototype
 ### v0.5.3 (2017-11-28)
 - Optimize the click event triggering of `Carousel` 
 ### v0.5.0 (2017-11-21)

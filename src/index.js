@@ -25,11 +25,11 @@ const install = function(Vue) {
     Vue.component(Navigation.name, Navigation);
     Vue.component(Modal.name, Modal);
 
-    Vue.prototype.$toast = () => Api.toast;
-    Vue.prototype.$loading = () => Api.loading;
-    Vue.prototype.$alert = (...args) => Api.alert(...args);
-    Vue.prototype.$confirm = (...args) => Api.confirm(...args);
-    Vue.prototype.$prompt = (...args) => Api.prompt(...args);
+    Vue.$toast = Vue.prototype.$toast = () => Api.toast;
+    Vue.$loading = Vue.prototype.$loading = () => Api.loading;
+    Vue.$alert = Vue.prototype.$alert = (...args) => Api.alert(...args);
+    Vue.$confirm = Vue.prototype.$confirm = (...args) => Api.confirm(...args);
+    Vue.$prompt = Vue.prototype.$prompt = (...args) => Api.prompt(...args);
 };
 
 export default {
