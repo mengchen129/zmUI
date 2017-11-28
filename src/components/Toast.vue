@@ -1,7 +1,10 @@
 <template>
     <transition name="zm-toast">
-        <div class="zm-toast" v-show="showing">
-            <div class="zm-toast-text">{{text}}</div>
+        <div class="zm-toast" :class="{'with-icon': withIcon}" v-show="showing">
+            <div class="zm-toast-wrap">
+                <div class="zm-toast-icon" v-show="withIcon"></div>
+                <div class="zm-toast-text">{{ text }}</div>
+            </div>
         </div>
     </transition>
 </template>
@@ -20,6 +23,7 @@
             return {
                 text: '',
                 showing: false,
+                withIcon: false,
                 timer: null
             };
         },
@@ -29,8 +33,9 @@
             };
         },
         methods: {
-            show: function(text, duration) {
+            show: function(text, duration, withIcon) {
                 this.text = text;
+                this.withIcon = withIcon;
                 this.showing = true;
                 if (this.timer) {
                     clearInterval(this.timer);
