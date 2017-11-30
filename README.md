@@ -14,6 +14,7 @@ npm install zmui --save
 ```javascript
 import zmUI from 'zmui';
 Vue.use(zmUI);
+import 'zmui/src/styles/index.scss';
 ```
 
 ## Components
@@ -33,9 +34,10 @@ Mount `zm-toast` on the root vue instance:
 ```xml
 <zm-toast></zm-toast>
 ```
-Invoke `$toast.show` on any vue instance:
+Invoke `$toast().show` on any vue instance or Vue itself:
 ```javascript
 this.$toast().show('This is message');
+Vue.$toast().show('This is message');
 ````
 
 #### Options
@@ -52,11 +54,11 @@ import { Toast } from 'zmui';
 this.$toast().show('This is message', Toast.LENGTH_SHORT);
 ````
 
-### `Slider`
+### `Carousel`
 A image slider component
 #### Example
 ```xml
-<zm-slider :list="list" :auto="3000"></zm-slider>
+<zm-carousel :list="list" :auto="3000"></zm-carousel>
 ```
 ```javascript 
 {
@@ -74,7 +76,7 @@ A image slider component
 ##### list 
 The image data list. For each item, `url` for load image, `href` for navigation address. 
 
-If `href` is not defined, then it will emit an event `slider-click` with the current item as the parameter.
+If `href` is not defined, then it will emit an event `carousel-click` with the current item as the parameter.
 ##### auto
 The autoplay interval (ms), set 0 (default) for disable autoplay
 
@@ -85,7 +87,7 @@ Mount `zm-loading` on the root vue instance:
 ```xml
 <zm-loading></zm-loading>
 ```
-Invoke `$loading.show` or `$loading.hide` on any vue instance:
+Invoke `$loading.show` or `$loading.hide` on any vue instance or Vue itself:
 ```javascript
 this.$loading().show('Loading...');
 this.$loading().hide();
@@ -163,7 +165,7 @@ Trigger when ok button clicked, contains the final result
 ### v0.1.3 (2017-10-31)
 - Add component `Loading`
 ### v0.1.2 (2017-10-30)
-- Add component `Slider`
+- Add component `Slider` (later renamed to `Carousel`)
 ### v0.1.1 (2017-10-29)
 - Add component `Toast`
 ### v0.1.0 (2017-10-29)
