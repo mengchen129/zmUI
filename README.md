@@ -135,6 +135,8 @@ Trigger when ok button clicked, contains the final result
 
 
 ## Changelog
+### v0.5.6 (2017-12-01)
+- Add hardware acceleration on transition elements
 ### v0.5.5 (2017-11-28)
 - Add icon option on `Toast` component
 ### v0.5.4 (2017-11-28)
