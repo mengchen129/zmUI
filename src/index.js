@@ -8,6 +8,8 @@ import MultipleSelect from './components/MultipleSelect.vue';
 import DistrictSelect from './components/DistrictSelect.vue';
 import Navigation from './components/Navigation.vue';
 import Modal from './components/Modal.vue';
+import PullDown from './components/PullDown.vue';
+import ScrollLoading from './components/ScrollLoading.vue';
 
 import Api from './plugins/GlobalApi';
 
@@ -24,6 +26,8 @@ const install = function(Vue) {
     Vue.component(DistrictSelect.name, DistrictSelect);
     Vue.component(Navigation.name, Navigation);
     Vue.component(Modal.name, Modal);
+    Vue.component(PullDown.name, PullDown);
+    Vue.component(ScrollLoading.name, ScrollLoading);
 
     Vue.$toast = Vue.prototype.$toast = () => Api.toast;
     Vue.$loading = Vue.prototype.$loading = () => Api.loading;
@@ -46,5 +50,7 @@ export {
     MultipleSelect,
     DistrictSelect,
     Navigation,
-    Modal
+    Modal,
+    PullDown,
+    ScrollLoading,
 };

@@ -42,6 +42,12 @@
             <div class="demo-list-item" @click="link('/modal')">
                 <div class="demo-list-item-icon icon-modal"></div> Modal
             </div>
+            <div class="demo-list-item" @click="link('/pulldown')">
+                <div class="demo-list-item-icon icon-pulldown"></div> Pull Down
+            </div>
+            <div class="demo-list-item" @click="link('/scroll-loading')">
+                <div class="demo-list-item-icon icon-scroll-loading"></div> Scroll Loading
+            </div>
         </div>
 
         <zm-toast></zm-toast>
@@ -176,6 +182,14 @@
         background-image: url('../src/assets/demo/icon-modal.png');
     }
 
+    .icon-pulldown {
+        background-image: url('../src/assets/demo/icon-pulldown.png');
+    }
+
+    .icon-scroll-loading {
+        background-image: url('../src/assets/demo/icon-scroll-loading.png');
+    }
+
     .demo-btn {
         padding: 10px 20px;
         display: block;
@@ -206,5 +220,41 @@
 
     .demo-ul li {
         padding: 10px 0;
+    }
+
+    .demo-news-list {
+        margin-top: -5px;
+    }
+
+    .demo-news-item {
+        display: flex;
+        padding: 5px;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .demo-news-item:active {
+        background-color: #f6f6f6;
+    }
+
+    .demo-news-image {
+        flex-shrink: 0;
+        width: 120px;
+        height: 90px;
+    }
+
+    .demo-new-main {
+        flex: auto;
+        padding-left: 10px;
+    }
+
+    .demo-news-title {
+        font-size: 16px;
+        color: #333;
+    }
+
+    .demo-news-sub {
+        font-size: 12px;
+        color: #999;
+        margin-top: 5px;
     }
 </style>

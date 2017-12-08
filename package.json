@@ -1,7 +1,7 @@
 {
   "name": "zmui",
   "description": "A Mobile UI Components Library based on Vue.js",
-  "version": "0.5.6",
+  "version": "0.6.0",
   "author": "mengchen <mengchen@zhimadj.com>",
   "licence": "MIT",
   "repository": {
@@ -24,6 +24,8 @@
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",
+    "jsonp": "^0.2.1",
+    "lodash.throttle": "^4.1.1",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.8",
     "sass-loader": "^6.0.6",

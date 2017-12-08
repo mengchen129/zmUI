@@ -12,6 +12,8 @@ import DemoMultipleSelect from './pages/DemoMultipleSelect.vue';
 import DemoDistrictSelect from './pages/DemoDistrictSelect.vue';
 import DemoNavigation from './pages/DemoNavigation.vue';
 import DemoModal from './pages/DemoModal.vue';
+import DemoPullDown from './pages/DemoPullDown.vue';
+import DemoScrollLoading from './pages/DemoScrollLoading.vue';
 
 
 import VueRouter from 'vue-router';
@@ -61,6 +63,14 @@ const routes = [
     {
         path: '/modal',
         component: DemoModal,
+    },
+    {
+        path: '/pulldown',
+        component: DemoPullDown
+    },
+    {
+        path: '/scroll-loading',
+        component: DemoScrollLoading,
     }
 ];
 

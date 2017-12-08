@@ -1,0 +1,38 @@
+.zm-pulldown {
+  position: fixed;
+  width: 48px;
+  height: 48px;
+  background-color: #fff;
+  border-radius: 5px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: -54px;
+  z-index: 41;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes zm-pulldown-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.zm-pulldown-icon {
+  width: 33px;
+  height: 33px;
+  background: url('#{$assetsPath}/icon-refresh.png') no-repeat center;
+  background-size: contain;
+  animation: zm-pulldown-spin 1s linear infinite;
+}
+
+.zm-pulldown-transition {
+  transition: transform 0.5s ease-out;
+}

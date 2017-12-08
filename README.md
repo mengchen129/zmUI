@@ -135,6 +135,8 @@ Trigger when ok button clicked, contains the final result
 
 
 ## Changelog
+### v0.6.0 (2017-12-08)
+- Add components `PullDown` and `ScrollLoading`
 ### v0.5.6 (2017-12-01)
 - Add hardware acceleration on transition elements
 ### v0.5.5 (2017-11-28)
