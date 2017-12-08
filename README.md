@@ -21,17 +21,37 @@ import 'zmui/src/styles/index.scss';
 
 ### `Header`
 A header component 
-##### Example
-```xml
+#### Example
+```html
 <zm-header>This is Header</zm-header>
 ```
-##### Options
+#### Props
+##### back
+Determine if exists a back btn on the left, it can be set to `true` or a normal string (default `undefined`), set `true` to execute `history.back()` and a string stands for the event name for custom behavior.
+```html
+<zm-header :back="true">Header</zm-header>
+```
+```html
+<zm-header back="myback" @myback="mybackHandle">Header</zm-header>
+```
+
+##### inline
+A Boolean value to control the `position` attribute of the header to `fixed` (set `false`, default) or `relative` (set `true`).
+
+##### btn
+A object value to determine if exists a text button of the right, and the event name for emitting.
+```html
+<zm-header :btn="{text: 'Save', emit: 'save'}" @save="saveInfo"></zm-header>
+```
+
+##### leftBtn
+Same to `btn`, but on the left.
 
 ### `Toast`
 A toast component
 #### Example
 Mount `zm-toast` on the root vue instance:
-```xml
+```html
 <zm-toast></zm-toast>
 ```
 Invoke `$toast().show` on any vue instance or Vue itself:
@@ -40,8 +60,9 @@ this.$toast().show('This is message');
 Vue.$toast().show('This is message');
 ````
 
-#### Options
-configure the display duration, for example 2 seconds:
+#### Arguments
+##### duration
+The second argument can configure the display duration, for example 2 seconds:
 ```javascript
 this.$toast().show('This is message', 2000);
 ````
@@ -54,10 +75,16 @@ import { Toast } from 'zmui';
 this.$toast().show('This is message', Toast.LENGTH_SHORT);
 ````
 
+##### withIcon
+The third argument can configure if to display a icon with exclamation mark over the text.
+```javascript
+this.$toast().show('This is a toast with icon', 1000, true);
+```
+
 ### `Carousel`
-A image slider component
+A carousel component for images. It works well on both PC (mouse events) and mobile browsers (touch events).
 #### Example
-```xml
+```html
 <zm-carousel :list="list" :auto="3000"></zm-carousel>
 ```
 ```javascript 
@@ -84,7 +111,7 @@ The autoplay interval (ms), set 0 (default) for disable autoplay
 A loading icon displayed on the screen center
 #### Example
 Mount `zm-loading` on the root vue instance:
-```xml
+```html
 <zm-loading></zm-loading>
 ```
 Invoke `$loading.show` or `$loading.hide` on any vue instance or Vue itself:
@@ -132,7 +159,84 @@ Trigger when keyboard keys clicked, contains the realtime result
 ##### ok
 Trigger when ok button clicked, contains the final result
 
+### `SingleSelect`
+A select component for single choosing.
 
+#### Example
+```html
+<zm-single-select ref="jobSelect" :options="jobList" @value="onJobChange"></zm-single-select>
+```
+```javascript 
+data: {
+    jobList: [
+        'Junior Engineer', 'Engineer', 
+        'Senior Engineer', 'Architect', 
+        'Senior Architect', 'CTO'
+    ],
+    job: ''
+}
+```
+```javascript 
+methods: {
+    onJobChange(val) {
+        this.job = val;
+    },
+    openJobChoose() {
+        // open the select component with current value
+        this.$refs.jobSelect.open(this.job);
+    }
+}
+```
+
+#### Options
+Not only String, the option type can be an object with keys (a value key and a text key). The name of keys can be configured with `text-key` and `value-key` props.
+```html
+<zm-single-select 
+    ref="genderSelect" 
+    :options="genderList"
+    value-key="value"
+    text-key="text"
+    @value="onGenderChange"
+></zm-single-select>
+```
+```javascript 
+data: {
+    genderList: [
+        { value: 1, text: 'Male' },
+        { value: 2, text: 'Female'},
+    ],
+    gender: null,
+}
+```
+```javascript 
+methods: {
+    onGenderChange(val) {
+        this.gender = val;
+    },
+    openGenderChoose() {
+        // open the select component with current value
+        this.$refs.jobSelect.open(this.gender && this.gender.value);
+    }
+}
+```
+
+### `MultipleSelect`
+To be continued.
+
+### `District Select`
+To be continued.
+
+### `Navigation`
+To be continued.
+
+### `Modal`
+To be continued.
+
+### `PullDown`
+To be continued.
+
+### `ScrollLoading`
+To be continued.
 
 ## Changelog
 ### v0.6.0 (2017-12-08)
