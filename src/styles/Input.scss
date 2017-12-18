@@ -1,0 +1,43 @@
+.zm-input {
+  height: 45px;
+  padding: 0 15px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  color: $color-text-primary;
+  border-top: none;
+}
+
+.zm-input + .zm-input {
+  border-top: 1px solid #dadada;
+}
+
+.zm-input.with-more {
+  background: url('#{$assetsPath}/icon-more.png') no-repeat right 15px center, #fff;
+  background-size: 8px 16px;
+  padding-right: 15px + 16px;
+}
+
+.zm-input-content {
+  color: $color-text-primary;
+  font-size: 16px;
+  height: 100%;
+  border: none;
+  outline: none;
+  text-align: right;
+  flex: auto;
+  margin-left: 15px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.zm-input-content::-webkit-input-placeholder {
+  color: $color-text-slave;
+}
+
+.zm-input-content.placeholder {
+  color: $color-text-slave;
+}

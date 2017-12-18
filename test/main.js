@@ -14,6 +14,7 @@ import DemoNavigation from './pages/DemoNavigation.vue';
 import DemoModal from './pages/DemoModal.vue';
 import DemoPullDown from './pages/DemoPullDown.vue';
 import DemoScrollLoading from './pages/DemoScrollLoading.vue';
+import DemoInput from './pages/DemoInput.vue';
 
 
 import VueRouter from 'vue-router';
@@ -71,6 +72,10 @@ const routes = [
     {
         path: '/scroll-loading',
         component: DemoScrollLoading,
+    },
+    {
+        path: '/input',
+        component: DemoInput,
     }
 ];
 

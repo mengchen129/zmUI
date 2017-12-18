@@ -8,8 +8,8 @@
         <p> 你选择了：{{  gender }}</p>
         <p><button class="demo-btn" @click="showGenderSelect">选择性别</button></p>
 
-        <zm-single-select :options="bankList" ref="bankSelect" @value="onBankChange"></zm-single-select>
-        <zm-single-select :options="genderList" text-key="text" value-key="value" ref="genderSelect" @value="onGenderChange"></zm-single-select>
+        <zm-single-select :options="bankList" ref="bankSelect" v-model="bank"></zm-single-select>
+        <zm-single-select :options="genderList" text-key="text" value-key="value" ref="genderSelect" v-model="gender"></zm-single-select>
     </div>
 </template>
 
@@ -46,17 +46,11 @@
         },
         methods: {
             showBankSelect() {
-                this.$refs.bankSelect.open(this.bank);
+                this.$refs.bankSelect.open();
             },
             showGenderSelect() {
-                this.$refs.genderSelect.open(this.gender && this.gender.value);
+                this.$refs.genderSelect.open();
             },
-            onBankChange(value) {
-                this.bank = value;
-            },
-            onGenderChange(value) {
-                this.gender = value;
-            }
         }
     }
 </script>

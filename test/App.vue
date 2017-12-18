@@ -48,6 +48,9 @@
             <div class="demo-list-item" @click="link('/scroll-loading')">
                 <div class="demo-list-item-icon icon-scroll-loading"></div> Scroll Loading
             </div>
+            <div class="demo-list-item" @click="link('/input')">
+                <div class="demo-list-item-icon icon-input"></div> Input
+            </div>
         </div>
 
         <zm-toast></zm-toast>
@@ -88,6 +91,10 @@
     .demo-page.no-lr-padding {
         padding-left: 0;
         padding-right: 0;
+    }
+
+    .demo-page.bg-gray {
+        background-color: #f6f6f6;
     }
 
     .demo-nav {
@@ -190,6 +197,10 @@
         background-image: url('../src/assets/demo/icon-scroll-loading.png');
     }
 
+    .icon-input {
+        background-image: url('../src/assets/demo/icon-input.png');
+    }
+
     .demo-btn {
         padding: 10px 20px;
         display: block;
@@ -256,5 +267,11 @@
         font-size: 12px;
         color: #999;
         margin-top: 5px;
+    }
+
+    .demo-flex-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>

@@ -3,12 +3,12 @@
         <transition name="zm-enter-from-bottom">
             <div class="zm-single-select-main" v-show="show">
                 <div class="zm-single-select-header">
-                    <div class="zm-single-select-current">{{ getOptionText(selected) || '请选择'}}</div>
-                    <button class="zm-single-select-ok" @click="ok" :disabled="!selected">确定</button>
+                    <div class="zm-single-select-current">{{ getOptionText(tempValue) || '请选择'}}</div>
+                    <button class="zm-single-select-ok" @click="ok" :disabled="!tempValue">确定</button>
                 </div>
                 <div class="zm-single-select-list">
                     <div class="zm-single-select-item"
-                         :class="{selected: selected == option}"
+                         :class="{selected: tempValue == option}"
                          v-for="option in options"
                          @click="chooseOption(option)">
                         {{ getOptionText(option) }}
@@ -39,38 +39,32 @@
                 type: String,
                 default: ''
             },
-            valueKey: {
-                type: String,
-                default: ''
+            value: {            // 通过 v-model 进行的 value 绑定，这里持有初值
+                type: [String, Object],
             }
         },
         data() {
             return {
                 show: false,
-                selected: null,
+                tempValue: '',      // 在选择期间内临时存储当前选中的值
             }
         },
         methods: {
-            open(initValue) {
+            open() {
                 this.show = true;
-                let selectedArr = this.options.filter(item => {
-                    let value = this.valueKey ? item[this.valueKey] : item;
-                    return value == initValue;
-                });
-
-                if (selectedArr.length) {
-                    this.selected = selectedArr[0];
-                }
+                this.tempValue = this.value;        // 将初值对应的项选中
             },
             ok() {
                 this.show = false;
-                this.$emit('value', this.selected);
+
+                // 将当前选中的值 emit 出去，会被外层 v-model 语法糖中的 @input 接收从而修改掉 props.value 的值
+                this.$emit('input', this.tempValue);
             },
             cancel() {
                 this.show = false;
             },
             chooseOption(option) {
-                this.selected = option;
+                this.tempValue = option;
             },
             getOptionText(option) {
                 if (!option) return null;
