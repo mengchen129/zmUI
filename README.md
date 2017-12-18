@@ -164,7 +164,7 @@ A select component for single choosing.
 
 #### Example
 ```html
-<zm-single-select ref="jobSelect" :options="jobList" @value="onJobChange"></zm-single-select>
+<zm-single-select ref="jobSelect" :options="jobList" v-model="job"></zm-single-select>
 ```
 ```javascript 
 data: {
@@ -178,25 +178,19 @@ data: {
 ```
 ```javascript 
 methods: {
-    onJobChange(val) {
-        this.job = val;
-    },
     openJobChoose() {
-        // open the select component with current value
-        this.$refs.jobSelect.open(this.job);
+        this.$refs.jobSelect.open();
     }
 }
 ```
 
 #### Options
-Not only String, the option type can be an object with keys (a value key and a text key). The name of keys can be configured with `text-key` and `value-key` props.
+Not only String, the option type can be an object with keys (a value key and a text key). The name of text key can be configured with `text-key` props for displaying.
 ```html
 <zm-single-select 
     ref="genderSelect" 
     :options="genderList"
-    value-key="value"
     text-key="text"
-    @value="onGenderChange"
 ></zm-single-select>
 ```
 ```javascript 
@@ -210,20 +204,18 @@ data: {
 ```
 ```javascript 
 methods: {
-    onGenderChange(val) {
-        this.gender = val;
-    },
     openGenderChoose() {
-        // open the select component with current value
-        this.$refs.jobSelect.open(this.gender && this.gender.value);
+        this.$refs.genderSelect.open();
     }
 }
 ```
 
+The `SingleSelect` can be used together with `Input` component. View `Input` for detail.
+
 ### `MultipleSelect`
 To be continued.
 
-### `District Select`
+### `DistrictSelect`
 To be continued.
 
 ### `Navigation`
@@ -238,7 +230,13 @@ To be continued.
 ### `ScrollLoading`
 To be continued.
 
+### `Input`
+To be continued.
+
 ## Changelog
+### v0.6.1 (2017-12-18)
+- Add component `Input`
+- Add `v-model` binding to `SingleSelect`
 ### v0.6.0 (2017-12-08)
 - Add components `PullDown` and `ScrollLoading`
 ### v0.5.6 (2017-12-01)
