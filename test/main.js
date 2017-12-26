@@ -15,6 +15,7 @@ import DemoModal from './pages/DemoModal.vue';
 import DemoPullDown from './pages/DemoPullDown.vue';
 import DemoScrollLoading from './pages/DemoScrollLoading.vue';
 import DemoInput from './pages/DemoInput.vue';
+import DemoSuggestion from './pages/DemoSuggestion.vue';
 
 
 import VueRouter from 'vue-router';
@@ -76,6 +77,10 @@ const routes = [
     {
         path: '/input',
         component: DemoInput,
+    },
+    {
+        path: '/suggestion',
+        component: DemoSuggestion,
     }
 ];
 

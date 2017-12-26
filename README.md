@@ -234,6 +234,8 @@ To be continued.
 To be continued.
 
 ## Changelog
+### v0.6.2 (2017-12-26)
+- Add component `Suggestion`
 ### v0.6.1 (2017-12-18)
 - Add component `Input`
 - Add `v-model` binding to `SingleSelect`

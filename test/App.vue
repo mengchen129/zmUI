@@ -51,6 +51,9 @@
             <div class="demo-list-item" @click="link('/input')">
                 <div class="demo-list-item-icon icon-input"></div> Input
             </div>
+            <div class="demo-list-item" @click="link('/suggestion')">
+                <div class="demo-list-item-icon icon-suggestion"></div> Suggestion
+            </div>
         </div>
 
         <zm-toast></zm-toast>
@@ -199,6 +202,10 @@
 
     .icon-input {
         background-image: url('../src/assets/demo/icon-input.png');
+    }
+
+    .icon-suggestion {
+        background-image: url('../src/assets/demo/icon-suggestion.png');
     }
 
     .demo-btn {

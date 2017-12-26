@@ -1,0 +1,44 @@
+@import "defaults";
+
+.zm-suggestion {
+  position: relative;
+  font-size: 16px;
+}
+
+.zm-suggestion-input {
+  width: 100%;
+  height: 36px;
+  border: 1px solid #dadada;
+  outline: none;
+  padding: 0 10px;
+  font-size: inherit;
+}
+
+.zm-suggestion-list {
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  border: 1px solid #d8d8d8;
+}
+
+.zm-suggestion-item {
+  height: 36px;
+  color: $color-text-medium;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+
+  &+& {
+    border-top: 1px solid #d8d8d8;
+  }
+
+  &.empty {
+    justify-content: center;
+    color: $color-text-slave;
+    font-size: 14px;
+  }
+
+  &:not(.empty):hover {
+    background-color: #f6f6f6;
+  }
+}

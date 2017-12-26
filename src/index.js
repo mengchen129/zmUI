@@ -11,6 +11,7 @@ import Modal from './components/Modal.vue';
 import PullDown from './components/PullDown.vue';
 import ScrollLoading from './components/ScrollLoading.vue';
 import Input from './components/Input.vue';
+import Suggestion from './components/Suggestion.vue';
 
 import Api from './plugins/GlobalApi';
 
@@ -30,6 +31,7 @@ const install = function(Vue) {
     Vue.component(PullDown.name, PullDown);
     Vue.component(ScrollLoading.name, ScrollLoading);
     Vue.component(Input.name, Input);
+    Vue.component(Suggestion.name, Suggestion);
 
     Vue.$toast = Vue.prototype.$toast = () => Api.toast;
     Vue.$loading = Vue.prototype.$loading = () => Api.loading;
@@ -56,4 +58,5 @@ export {
     PullDown,
     ScrollLoading,
     Input,
+    Suggestion,
 };
