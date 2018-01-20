@@ -16,6 +16,7 @@ import DemoPullDown from './pages/DemoPullDown.vue';
 import DemoScrollLoading from './pages/DemoScrollLoading.vue';
 import DemoInput from './pages/DemoInput.vue';
 import DemoSuggestion from './pages/DemoSuggestion.vue';
+import DemoProgress from './pages/DemoProgress.vue';
 
 
 import VueRouter from 'vue-router';
@@ -81,6 +82,10 @@ const routes = [
     {
         path: '/suggestion',
         component: DemoSuggestion,
+    },
+    {
+        path: '/progress',
+        component: DemoProgress,
     }
 ];
 
@@ -90,6 +95,22 @@ import zmUI from '../src/index';
 Vue.use(zmUI);
 
 import '../src/styles/index.scss';
+
+router.beforeEach((to, from, next) => {
+    if (Vue.$progress()) {
+        Vue.$progress().start();
+    }
+    next();
+});
+
+router.afterEach(() => {
+    setTimeout(() => {
+        if (Vue.$progress()) {
+            Vue.$progress().done();
+        }
+    }, 100);
+
+});
 
 new Vue({
     el: '#app',

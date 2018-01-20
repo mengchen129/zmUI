@@ -12,6 +12,7 @@ import PullDown from './components/PullDown.vue';
 import ScrollLoading from './components/ScrollLoading.vue';
 import Input from './components/Input.vue';
 import Suggestion from './components/Suggestion.vue';
+import Progress from './components/Progress.vue';
 
 import Api from './plugins/GlobalApi';
 
@@ -32,12 +33,14 @@ const install = function(Vue) {
     Vue.component(ScrollLoading.name, ScrollLoading);
     Vue.component(Input.name, Input);
     Vue.component(Suggestion.name, Suggestion);
+    Vue.component(Progress.name, Progress);
 
     Vue.$toast = Vue.prototype.$toast = () => Api.toast;
     Vue.$loading = Vue.prototype.$loading = () => Api.loading;
     Vue.$alert = Vue.prototype.$alert = (...args) => Api.alert(...args);
     Vue.$confirm = Vue.prototype.$confirm = (...args) => Api.confirm(...args);
     Vue.$prompt = Vue.prototype.$prompt = (...args) => Api.prompt(...args);
+    Vue.$progress = Vue.prototype.$progress = () => Api.$progress;
 };
 
 export default {
@@ -59,4 +62,5 @@ export {
     ScrollLoading,
     Input,
     Suggestion,
+    Progress
 };

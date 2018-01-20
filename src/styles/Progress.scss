@@ -1,0 +1,21 @@
+@import "defaults";
+
+.zm-progress {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 3px;
+  background-color: $theme-color;
+  z-index: $progress-z-index;
+  transform: translate3d(-100%, 0, 0);
+  transition: all 0.5s linear;
+}
+
+.zm-progress-leave-active {
+  transition: opacity 0.5s linear;
+}
+
+.zm-progress-leave-to {
+  opacity: 0;
+}

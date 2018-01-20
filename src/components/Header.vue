@@ -1,5 +1,5 @@
 <template>
-    <div class="zm-header" :class="{inline: inline}">
+    <div class="zm-header" :class="{inline: inline, transparent: transparent}">
         <div class="zm-header-back" v-if="back" @click="headerBack"></div>
         <div class="zm-header-btn" v-if="btn" @click="$emit(btn.emit)">{{ btn.text }}</div>
         <div class="zm-header-btn left" v-if="leftBtn" @click="$emit(leftBtn.emit)">{{ leftBtn.text }}</div>
@@ -26,6 +26,10 @@
             leftBtn: {
                 type: Object,
                 default: null,
+            },
+            transparent: {
+                type: Boolean,
+                default: false,
             }
         },
 

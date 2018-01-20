@@ -54,9 +54,14 @@
             <div class="demo-list-item" @click="link('/suggestion')">
                 <div class="demo-list-item-icon icon-suggestion"></div> Suggestion
             </div>
+            <div class="demo-list-item" @click="link('/progress')">
+                <div class="demo-list-item-icon icon-progress"></div> Progress
+            </div>
         </div>
 
         <zm-toast></zm-toast>
+
+        <zm-progress></zm-progress>
 
         <router-view></router-view>
     </div>
@@ -206,6 +211,10 @@
 
     .icon-suggestion {
         background-image: url('../src/assets/demo/icon-suggestion.png');
+    }
+
+    .icon-progress {
+        background-image: url('../src/assets/demo/icon-progress.png');
     }
 
     .demo-btn {

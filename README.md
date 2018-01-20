@@ -233,7 +233,12 @@ To be continued.
 ### `Input`
 To be continued.
 
+### `Progress`
+To be continued.
+
 ## Changelog
+### v0.6.3 (2018-01-20)
+- Add component `Progress`
 ### v0.6.2 (2017-12-26)
 - Add component `Suggestion`
 ### v0.6.1 (2017-12-18)

@@ -18,6 +18,16 @@
   position: relative;
 }
 
+.zm-header.transparent {
+  background-color: #fff;
+  color: $color-text-primary;
+  border-bottom: 1px solid #ccc;
+
+  & .zm-header-back {
+    background-image: url('#{$assetsPath}/icon-header-back-black.png');
+  }
+}
+
 .zm-header-back {
   position: absolute;
   display: block;
