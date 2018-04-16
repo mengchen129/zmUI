@@ -10,6 +10,10 @@
   transition: transform 0.3s ease-out;
 }
 
+.zm-carousel-list.no-transition {
+  transition: none;
+}
+
 .zm-carousel-img-wrap {
   flex-shrink: 0;
   width: 100%;

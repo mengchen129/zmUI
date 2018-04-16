@@ -5,6 +5,7 @@
         <zm-carousel :list="imgList" :auto="2000" @carousel-click="onCarouselClick"></zm-carousel>
         <div style="padding: 10px;">
             <p>同时支持PC鼠标和移动手势的滑动操作，支持滑动灵敏度配置</p>
+            <p>支持无缝滚动</p>
             <p>PS：点击第1/3/5张图片跳转链接；点击第2/4张弹出alert</p>
             <p>当滑动方向倾向上下时，触发默认滚动行为，而不触发左右轮播</p>
             <div>

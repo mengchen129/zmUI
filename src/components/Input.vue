@@ -6,6 +6,7 @@
                :placeholder="placeholder"
                :maxlength="maxLength"
                @input="onInputChange"
+               :value="value"
         >
         <div class="zm-input-content" :class="{placeholder: !value}" v-if="isTypeSelect">{{ valueShow || placeholder }}</div>
 

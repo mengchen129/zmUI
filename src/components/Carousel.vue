@@ -8,15 +8,15 @@
          @mousemove="swipeMoveMouse"
          @mouseup="swipeEndMouse">
 
-        <div class="zm-carousel-list" :style="transformObj">
-            <div class="zm-carousel-img-wrap" v-for="item in list" @click.stop="carouselClick">
+        <div class="zm-carousel-list" :class="{'no-transition': willLoopScroll}" :style="transformObj">
+            <div class="zm-carousel-img-wrap" v-for="item in _list" @click.stop="carouselClick">
                 <img class="zm-carousel-img" :src="item.url" alt="">
             </div>
         </div>
 
         <div class="zm-carousel-points">
-            <div class="zm-carousel-point-wrap" v-for="i in list.length">
-                <div class="zm-carousel-point"
+            <div class="zm-carousel-point-wrap" v-for="i in _list.length">
+                <div class="zm-carousel-point" v-if="i >= 2 && i <= _list.length - 1"
                      :class="{highlight: page == i - 1}"></div>
             </div>
         </div>
@@ -63,7 +63,7 @@
         data() {
             return {
                 winWidth: window.innerWidth,        // 窗口宽度(即每张图片宽度)
-                page: 0,            // 当前展示图的序号(从0开始)
+                page: 1,            // 当前展示图的序号(从1开始,首尾两个索引是复制的尾首元素，用于无缝滚动)
                 manualOffset: 0,    // 手动滑动引起的偏移值(px)
                 startX: 0,          // 手动偏移初始X坐标(px)
                 startY: 0,          // 手动偏移初始Y坐标(px)
@@ -75,10 +75,18 @@
                     startMoveDistance: 20,   // 最小触发滑动的滑动距离
                     minMoveDistance: 40,     // 最小触发滚屏的滑动距离 单位: 像素
                     minMoveSpeed: 150        // 最小触发滚屏滑动速度 单位: 像素/秒
-                }
+                },
+
+                willLoopScroll: false,       // 即将开始循环滚动
             }
         },
         computed: {
+            _list: function() {
+                let list = [].slice.call(this.list);
+                list.unshift(list[list.length - 1]);        // 将 list 最后一个元素放在最前
+                list.push(list[1]);                         // 将 list 第一个元素放在最后
+                return list;
+            },
             transformObj: function() {
                 let translateX = -1 * this.winWidth * this.page + this.manualOffset;
                 let translateProp = `translate3d(${translateX}px, 0, 0)`;
@@ -94,17 +102,36 @@
         },
         methods: {
             slideNext() {
-                if (this.page < this.list.length - 1) {
+                if (this.page < this._list.length - 1) {
                     this.page ++;
+
+                    // 如果滚到最后一张(原 list 第一张的 copy)，则定位到这一张的图片的初始位置(index=1)，同时禁止动画，切换后恢复
+                    if (this.page === this._list.length - 1) {
+                        setTimeout(() => {
+                            this.willLoopScroll =  true;
+                            this.page = 1;
+                            setTimeout(() => {
+                                this.willLoopScroll = false;
+                            }, 16);
+                        }, 300);
+                    }
                 }
             },
             slidePrev() {
                 if (this.page > 0) {
                     this.page --;
+
+                    // 如果滚到第一张(原 list 最后一张的 copy)，则定位到这一张的图片的初始位置(index=length-2)，同时禁止动画，切换后恢复
+                    if (this.page === 0) {
+                        setTimeout(() => {
+                            this.willLoopScroll = true;
+                            this.page = this._list.length - 2;
+                            setTimeout(() => {
+                                this.willLoopScroll = false;
+                            }, 16);
+                        }, 300);
+                    }
                 }
-            },
-            sliderTo(page) {
-                this.page = page;
             },
             swipeStartMouse(e) {
                 if (isMobile) return;
@@ -177,7 +204,7 @@
             autoPlay() {       // 启动自动播放
                 if (this.auto && !this.autoPlayTimer) {
                     this.autoPlayTimer = setInterval(() => {
-                        this.page = (this.page + 1) % this.list.length;
+                        this.slideNext();
                     }, parseInt(this.auto));
                 }
             },
@@ -193,7 +220,7 @@
                     return;
                 }
 
-                let item = this.list[this.page];
+                let item = this._list[this.page];
                 if (item.href) {
                     location.href = item.href;
                 } else {
