@@ -237,6 +237,8 @@ To be continued.
 To be continued.
 
 ## Changelog
+### v0.6.5 (2018-04-18)
+- \[bugfix\] repair undefined error on `Carousel`
 ### v0.6.4 (2018-04-16)
 - Add seamless scrolling feature on `Carousel`
 ### v0.6.3 (2018-01-20)

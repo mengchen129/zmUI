@@ -9,7 +9,7 @@
          @mouseup="swipeEndMouse">
 
         <div class="zm-carousel-list" :class="{'no-transition': willLoopScroll}" :style="transformObj">
-            <div class="zm-carousel-img-wrap" v-for="item in _list" @click.stop="carouselClick">
+            <div class="zm-carousel-img-wrap" v-for="item in _list" @click.stop="carouselClick(item)">
                 <img class="zm-carousel-img" :src="item.url" alt="">
             </div>
         </div>
@@ -82,6 +82,8 @@
         },
         computed: {
             _list: function() {
+                if (!(this.list && this.list.length)) return [];
+
                 let list = [].slice.call(this.list);
                 list.unshift(list[list.length - 1]);        // 将 list 最后一个元素放在最前
                 list.push(list[1]);                         // 将 list 第一个元素放在最后
@@ -214,13 +216,12 @@
                     this.autoPlayTimer = null;
                 }
             },
-            carouselClick() {      // 如果有 href 属性则跳转，否则 $emit 事件
+            carouselClick(item) {      // 如果有 href 属性则跳转，否则 $emit 事件
                 // PC 端在图片上滑动会始终触发 click，这里需要根据是否有滑动做屏蔽
                 if (!isMobile && (this.diffX || this.diffY)) {
                     return;
                 }
 
-                let item = this._list[this.page];
                 if (item.href) {
                     location.href = item.href;
                 } else {

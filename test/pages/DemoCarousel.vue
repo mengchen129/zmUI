@@ -34,7 +34,17 @@
     export default {
         data() {
             return {
-                imgList: [
+                imgList: []
+            }
+        },
+        methods: {
+            onCarouselClick(item) {
+                alert('你点击了第' + item.index + '张图片');
+            }
+        },
+        mounted() {
+            setTimeout(() => {
+                this.imgList = [
                     "https://raw.githubusercontent.com/mengchen129/zmUI/master/src/assets/demo/slider-imgs/img1.jpeg",
                     "https://raw.githubusercontent.com/mengchen129/zmUI/master/src/assets/demo/slider-imgs/img2.jpeg",
                     "https://raw.githubusercontent.com/mengchen129/zmUI/master/src/assets/demo/slider-imgs/img3.jpeg",
@@ -46,13 +56,8 @@
                     } else {
                         return {url: url, index: index + 1};
                     }
-                }),
-            }
-        },
-        methods: {
-            onCarouselClick(item) {
-                alert('你点击了第' + item.index + '张图片');
-            }
+                })
+            }, 500);
         }
     }
 </script>
