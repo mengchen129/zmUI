@@ -4,11 +4,15 @@
  * 2、点击设备后退时，将 history 出栈，同时触发 popstate 事件
  * 3、点击遮罩或组件内完成/取消操作时，需要手动 history.back 出栈
  * 4、组件显示时，绑定事件，组件隐藏时，解绑事件
+ * 5、如果设置了 Api.useModalBack = false, 则该功能将不生效
  *
  * 约定：
  * 组件使用 show 属性来控制自身的显示与隐藏
  */
-export default  {
+
+import Api from './GlobalApi';
+
+export default {
     data() {
         return {
             autoHistoryBack: true,      // 是否自动执行 history.back (在 popstate 被触发时，将被设置为 false)
@@ -16,6 +20,8 @@ export default  {
     },
     watch: {
         show: function(val) {
+            if (!Api.useModalBack) return;
+
             if (!val) {
                 window.removeEventListener('popstate', this.onPopState);
                 if (this.autoHistoryBack) {

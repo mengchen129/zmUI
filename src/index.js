@@ -16,7 +16,7 @@ import Progress from './components/Progress.vue';
 
 import Api from './plugins/GlobalApi';
 
-const install = function(Vue) {
+const install = function(Vue, options = {}) {
     if (install.installed) return;
 
     Vue.component(Header.name, Header);
@@ -41,6 +41,10 @@ const install = function(Vue) {
     Vue.$confirm = Vue.prototype.$confirm = (...args) => Api.confirm(...args);
     Vue.$prompt = Vue.prototype.$prompt = (...args) => Api.prompt(...args);
     Vue.$progress = Vue.prototype.$progress = () => Api.$progress;
+
+    if (options.useModalBack === false) {
+        Api.useModalBack = false;
+    }
 };
 
 export default {

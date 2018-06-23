@@ -91,8 +91,10 @@ const routes = [
 
 const router = new VueRouter({routes});
 
+const ua = navigator.userAgent;
+const isAndroidDingDing = /dingtalk/i.test(ua) && /android/i.test(ua);
 import zmUI from '../src/index';
-Vue.use(zmUI);
+Vue.use(zmUI, { useModalBack: !isAndroidDingDing });
 
 import '../src/styles/index.scss';
 
