@@ -237,6 +237,8 @@ To be continued.
 To be continued.
 
 ## Changelog
+### v0.6.6 (2018-06-23)
+- Add option `useModalBack` to control if using `ModalBack` feature on some poor supported browsers such as Android DingTalk browser
 ### v0.6.5 (2018-04-18)
 - \[bugfix\] repair undefined error on `Carousel`
 ### v0.6.4 (2018-04-16)
