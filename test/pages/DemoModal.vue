@@ -5,18 +5,21 @@
         <button class="demo-btn" @click="showAlert">Show Alert</button>
         <button class="demo-btn" @click="showConfirm">Show Confirm</button>
         <button class="demo-btn" @click="showPrompt">Show Prompt</button>
+        <button class="demo-btn" @click="showAlertWithSlot1">Show Alert With Images</button>
+        <button class="demo-btn" @click="showAlertWithSlot2">Show Alert With Forms</button>
 
-        <zm-modal></zm-modal>
+        <div>{{ formJsonData }}</div>
     </div>
 </template>
 
 <script>
     import {Toast} from '../../src/index';
+    import { modalFormData } from '../GlobalData';
 
     export default {
         data() {
             return {
-                
+                formJsonData: ''
             }
         },
         methods: {
@@ -33,6 +36,16 @@
             showPrompt() {
                 this.$prompt('输入你最擅长的兴趣爱好', value => {
                     this.$toast().show(value ? ('你输入了' + value) : '你没有输入', Toast.LENGTH_SHORT);
+                });
+            },
+            showAlertWithSlot1() {
+                this.$alert({slot: 'fighting'}, '加油');
+            },
+            showAlertWithSlot2() {
+                this.$confirm({slot: 'survey'}, '调查', ok => {
+                    if (!ok) return;
+
+                    this.formJsonData = JSON.stringify(modalFormData);
                 });
             }
         }

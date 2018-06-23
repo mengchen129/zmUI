@@ -237,6 +237,9 @@ To be continued.
 To be continued.
 
 ## Changelog
+### v0.6.7 (2018-06-23)
+- Add customized content on component `Modal`
+- Optimize styles on component `Input`
 ### v0.6.6 (2018-06-23)
 - Add option `useModalBack` to control if using `ModalBack` feature on some poor supported browsers such as Android DingTalk browser
 ### v0.6.5 (2018-04-18)

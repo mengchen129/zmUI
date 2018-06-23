@@ -1,6 +1,6 @@
 <template>
     <div class="zm-input" :class="{'with-more': isTypeSelect}" @click="openSelect">
-        <div><slot></slot></div>
+        <div class="zm-input-title"><slot></slot></div>
         <input type="text" class="zm-input-content"
                v-if="type == 'input'"
                :placeholder="placeholder"

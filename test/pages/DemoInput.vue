@@ -16,7 +16,6 @@
             <button type="button" class="demo-btn" @click="submitForm">查看表单数据</button>
         </div>
 
-        <zm-modal></zm-modal>
     </div>
 </template>
 

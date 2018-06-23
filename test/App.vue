@@ -63,16 +63,37 @@
 
         <zm-progress></zm-progress>
 
+        <zm-modal>
+            <template slot="fighting">
+                <div style="display: flex; align-items: center;">
+                    <img src="//mengchen129.github.io/vue-modal/cake.jpg"
+                         style="width: 100px; height: 100px; flex-shrink: 0; margin-right:10px;" alt="">
+                    <div>
+                        <p style="text-align: left;">要相信，梦里能到达的地方，总有一天，脚步也能到达。</p>
+                    </div>
+                </div>
+            </template>
+            <template slot="survey">
+                <zm-input placeholder="姓名" v-model="modalFormData.company">姓名</zm-input>
+                <zm-input placeholder="例如：软件工程师" v-model="modalFormData.job">职位</zm-input>
+                <zm-input placeholder="例如：用技术改变世界" v-model="modalFormData.dream">梦想</zm-input>
+            </template>
+            <template slot="anySlotName">
+                其他任何内容
+            </template>
+        </zm-modal>
+
         <router-view></router-view>
     </div>
 </template>
 
 <script>
-    import {Toast} from '../src/index';
+    import { modalFormData } from './GlobalData';
 
     export default {
         data () {
             return {
+                modalFormData: modalFormData
             }
         },
         methods: {

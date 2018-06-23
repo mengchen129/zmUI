@@ -20,6 +20,10 @@
   padding-right: 15px + 16px;
 }
 
+.zm-input-title {
+  white-space: nowrap;
+}
+
 .zm-input-content {
   color: $color-text-primary;
   font-size: 16px;
@@ -32,6 +36,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  min-width: 0;
 }
 
 .zm-input-content::-webkit-input-placeholder {

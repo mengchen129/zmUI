@@ -4,7 +4,11 @@
             <div class="zm-modal-dialog">
                 <div class="zm-modal-title" v-show="title">{{title}}</div>
                 <div class="zm-modal-body">
-                    {{message}}
+                    <!-- 如果有 slot，则将 slot 的值作为 slotName 渲染对应插槽 -->
+                    <slot :name="slot" v-if="slot"></slot>
+                    <!-- 没有 slot 则渲染普通文本 -->
+                    <template v-if="!slot">{{ message }}</template>
+                    <!-- prompt 会默认渲染一个输入的 form 表单 -->
                     <template v-if="type == 'prompt'">
                         <form @submit="onSubmitForm" class="zm-modal-prompt-form">
                             <input v-if="inputType == 'text'" type="text" ref="input" v-model="input" class="zm-modal-input">
