@@ -2,8 +2,9 @@
     <transition name="zm-modal">
         <div class="zm-modal" v-show="show">
             <div class="zm-modal-dialog">
-                <div class="zm-modal-title" v-show="title">{{title}}</div>
-                <div class="zm-modal-body">
+                <div class="zm-modal-title" v-show="title"
+                     :style="{color: titleColor, 'font-size': titleFontSize}">{{title}}</div>
+                <div class="zm-modal-body" :style="{color: messageColor, 'font-size': messageFontSize}">
                     <!-- 如果有 slot，则将 slot 的值作为 slotName 渲染对应插槽 -->
                     <slot :name="slot" v-if="slot"></slot>
                     <!-- 没有 slot 则渲染普通文本 -->
@@ -17,8 +18,11 @@
                     </template>
                 </div>
                 <div class="zm-modal-footer">
-                    <button class="zm-modal-btn slave" @click="cancel()" v-show="type == 'confirm' || type == 'prompt'">取消</button>
-                    <button class="zm-modal-btn primary" @click="ok()" v-show="type">确定</button>
+                    <button class="zm-modal-btn slave" @click="cancel()"
+                            v-show="type == 'confirm' || type == 'prompt'"
+                            :style="{color: cancelBtnColor}"
+                    >{{ cancelBtnText || '取消' }}</button>
+                    <button class="zm-modal-btn primary" @click="ok()" v-show="type">{{ okBtnText || '确定' }}</button>
                 </div>
             </div>
         </div>
@@ -41,11 +45,18 @@
                 title: '',
                 callback: null,
                 input: '',
-                inputType: 'text'
+                inputType: 'text',      // prompt 中输入框的type，目前提供text/number类型
+                okBtnText: '',          // 确认按钮的文本
+                cancelBtnText: '',      // 取消按钮的文本
+                cancelBtnColor: '',     // 取消按钮文本颜色
+                messageColor: '',       // 正文内容颜色
+                messageFontSize: '',    // 正文字体大小
+                titleColor: '',         // 标题颜色
+                titleFontSize: '',      // 标题字体大小
             }
         },
         methods: {
-            modal: function(message, title) {
+            modal: function(message, title, options = {}) {
                 if (typeof message === 'string') {
                     this.message = message;
                     this.slot = null;
@@ -55,21 +66,28 @@
                 this.title = title;
                 this.callback = null;
                 this.input = '';
+                this.okBtnText = options.okBtnText;
+                this.cancelBtnText = options.cancelBtnText;
+                this.cancelBtnColor = options.cancelBtnColor;
+                this.messageColor = options.messageColor;
+                this.titleColor = options.titleColor;
+                this.titleFontSize = options.titleFontSize;
+                this.messageFontSize = options.messageFontSize;
                 this.show = true;
             },
             modalAlert: function(params = {}) {
                 this.type = 'alert';
-                this.modal(params.message, params.title || '提示');
+                this.modal(params.message, params.title || '提示', params.options);
                 this.callback = params.callback;
             },
             modalConfirm: function(params = {}) {
                 this.type = 'confirm';
-                this.modal(params.message, params.title || '确认');
+                this.modal(params.message, params.title || '确认', params.options);
                 this.callback = params.callback;
             },
             modalPrompt: function(params = {}) {
                 this.type = 'prompt';
-                this.modal(params.message, params.title || '输入');
+                this.modal(params.message, params.title || '输入', params.options);
                 this.callback = params.callback;
                 this.inputType = params.options.inputType || 'text';
                 this.$nextTick(() => {
@@ -101,7 +119,7 @@
             }
         },
         mounted() {
-            Api.alert = (message, title, callback) => {
+            Api.alert = (message, title, callback, options = {}) => {
                 if (typeof title === 'function') {
                     callback = title;
                     title = undefined;
@@ -109,11 +127,12 @@
                 this.modalAlert({
                     message,
                     title,
-                    callback
+                    callback,
+                    options
                 });
             };
 
-            Api.confirm = (message, title, callback) => {
+            Api.confirm = (message, title, callback, options = {}) => {
                 if (typeof title === 'function') {
                     callback = title;
                     title = undefined;
@@ -121,7 +140,8 @@
                 this.modalConfirm({
                     message,
                     title,
-                    callback
+                    callback,
+                    options
                 });
             };
 
