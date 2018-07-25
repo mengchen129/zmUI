@@ -237,6 +237,8 @@ To be continued.
 To be continued.
 
 ## Changelog
+### v0.6.9 (2018-07-25)
+- Add empty title support on component `Modal`
 ### v0.6.8 (2018-07-24)
 - Add rich style options on component `Modal`
 ### v0.6.7 (2018-06-23)

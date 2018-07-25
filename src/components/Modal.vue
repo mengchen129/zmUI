@@ -77,17 +77,17 @@
             },
             modalAlert: function(params = {}) {
                 this.type = 'alert';
-                this.modal(params.message, params.title || '提示', params.options);
+                this.modal(params.message, (params.title !== undefined ? params.title : '提示'), params.options);
                 this.callback = params.callback;
             },
             modalConfirm: function(params = {}) {
                 this.type = 'confirm';
-                this.modal(params.message, params.title || '确认', params.options);
+                this.modal(params.message, (params.title !== undefined ? params.title : '确认'), params.options);
                 this.callback = params.callback;
             },
             modalPrompt: function(params = {}) {
                 this.type = 'prompt';
-                this.modal(params.message, params.title || '输入', params.options);
+                this.modal(params.message, (params.title !== undefined ? params.title : '输入'), params.options);
                 this.callback = params.callback;
                 this.inputType = params.options.inputType || 'text';
                 this.$nextTick(() => {

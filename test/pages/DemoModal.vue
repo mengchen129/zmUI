@@ -3,6 +3,7 @@
         <zm-header :back="true">Modal</zm-header>
 
         <button class="demo-btn" @click="showAlert">Show Alert</button>
+        <button class="demo-btn" @click="showAlertNoTitle">Show Alert Without Title</button>
         <button class="demo-btn" @click="showAlertCustomize">Show Alert With Customize Buttons</button>
         <button class="demo-btn" @click="showAlertCustomizeStyle">Show Alert With Styled Messages</button>
         <button class="demo-btn" @click="showConfirm">Show Confirm</button>
@@ -29,6 +30,11 @@
         methods: {
             showAlert() {
                 this.$alert('这是一个 Alert 对话框', '信息', () => {
+                    this.$toast().show('你点击了确定', Toast.LENGTH_SHORT);
+                });
+            },
+            showAlertNoTitle() {
+                this.$alert('这是一个无标题的 Alert 对话框', '', () => {
                     this.$toast().show('你点击了确定', Toast.LENGTH_SHORT);
                 });
             },
