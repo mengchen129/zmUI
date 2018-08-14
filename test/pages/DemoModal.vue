@@ -6,6 +6,7 @@
         <button class="demo-btn" @click="showAlertNoTitle">Show Alert Without Title</button>
         <button class="demo-btn" @click="showAlertCustomize">Show Alert With Customize Buttons</button>
         <button class="demo-btn" @click="showAlertCustomizeStyle">Show Alert With Styled Messages</button>
+        <button class="demo-btn" @click="showAlertHtml">Show Alert With HTML Tags</button>
         <button class="demo-btn" @click="showConfirm">Show Confirm</button>
         <button class="demo-btn" @click="showConfirmCustomize">Show Confirm With Customize Buttons</button>
         <button class="demo-btn" @click="showPrompt">Show Prompt</button>
@@ -50,6 +51,11 @@
                     messageColor: '#999',
                     messageFontSize: '18px',
                     okBtnText: '朕知道了'
+                });
+            },
+            showAlertHtml() {
+                this.$alert('如果你愿意一层一层一层的剥开我的心 <br> 你会发现 <br> 你会讶异 <br> 你是我最压抑最深处的秘密', '洋葱 - 杨宗纬', () => {}, {
+                    messageAsHtml: true
                 });
             },
             showConfirm() {

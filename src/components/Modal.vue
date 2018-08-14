@@ -8,7 +8,14 @@
                     <!-- 如果有 slot，则将 slot 的值作为 slotName 渲染对应插槽 -->
                     <slot :name="slot" v-if="slot"></slot>
                     <!-- 没有 slot 则渲染普通文本 -->
-                    <template v-if="!slot">{{ message }}</template>
+                    <template v-if="!slot">
+                        <template v-if="messageAsHtml">
+                            <div v-html="message"></div>
+                        </template>
+                        <template v-else>
+                            <div v-text="message"></div>
+                        </template>
+                    </template>
                     <!-- prompt 会默认渲染一个输入的 form 表单 -->
                     <template v-if="type == 'prompt'">
                         <form @submit="onSubmitForm" class="zm-modal-prompt-form">
@@ -53,6 +60,7 @@
                 messageFontSize: '',    // 正文字体大小
                 titleColor: '',         // 标题颜色
                 titleFontSize: '',      // 标题字体大小
+                messageAsHtml: false,   // 将正文以 html 形式解析
             }
         },
         methods: {
@@ -73,6 +81,7 @@
                 this.titleColor = options.titleColor;
                 this.titleFontSize = options.titleFontSize;
                 this.messageFontSize = options.messageFontSize;
+                this.messageAsHtml = !!options.messageAsHtml,
                 this.show = true;
             },
             modalAlert: function(params = {}) {
