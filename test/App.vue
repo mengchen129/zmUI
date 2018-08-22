@@ -57,6 +57,12 @@
             <div class="demo-list-item" @click="link('/progress')">
                 <div class="demo-list-item-icon icon-progress"></div> Progress
             </div>
+            <div class="demo-list-item" @click="link('/image-preview')">
+                <div class="demo-list-item-icon icon-image-preview"></div> Image Preview
+            </div>
+            <div class="demo-list-item" @click="link('/image-uploader')">
+                <div class="demo-list-item-icon icon-image-uploader"></div> Image Uploader
+            </div>
         </div>
 
         <zm-toast></zm-toast>
@@ -236,6 +242,14 @@
 
     .icon-progress {
         background-image: url('../src/assets/demo/icon-progress.png');
+    }
+
+    .icon-image-preview {
+        background-image: url('../src/assets/demo/icon-image-preview.png');
+    }
+
+    .icon-image-uploader {
+        background-image: url('../src/assets/demo/icon-image-uploader.png');
     }
 
     .demo-btn {

@@ -1,0 +1,65 @@
+.zm-image-uploader-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.zm-image-cube-wrap {
+  width: 75px;
+  height: 75px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+.zm-image-cube {
+  width: 75px;
+  height: 75px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-radius: 2px;
+  position: relative;
+
+  &.empty {
+    border: 1px dashed #cccccc;
+    position: relative;
+  }
+}
+
+.zm-image-cube-delete {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  background: url('#{$assetsPath}/icon-upload-delete.png') no-repeat center;
+  background-size: contain;
+}
+
+.zm-image-cube-upload {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.zm-upload-camera {
+  width: 28px;
+  height: 23px;
+  background: url('#{$assetsPath}/icon-upload-camera.png') no-repeat center;
+  background-size: contain;
+}
+
+.zm-upload-tip {
+  font-size: 13px;
+  line-height: 1;
+  color: #ccc;
+  margin-top: 10px;
+}

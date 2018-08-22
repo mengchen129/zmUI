@@ -17,6 +17,8 @@ import DemoScrollLoading from './pages/DemoScrollLoading.vue';
 import DemoInput from './pages/DemoInput.vue';
 import DemoSuggestion from './pages/DemoSuggestion.vue';
 import DemoProgress from './pages/DemoProgress.vue';
+import DemoImagePreview from './pages/DemoImagePreview.vue';
+import DemoImageUploader from './pages/DemoImageUploader.vue';
 
 
 import VueRouter from 'vue-router';
@@ -86,6 +88,14 @@ const routes = [
     {
         path: '/progress',
         component: DemoProgress,
+    },
+    {
+        path: '/image-preview',
+        component: DemoImagePreview
+    },
+    {
+        path: '/image-uploader',
+        component: DemoImageUploader,
     }
 ];
 

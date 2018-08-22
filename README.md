@@ -237,6 +237,9 @@ To be continued.
 To be continued.
 
 ## Changelog
+### v0.7.0 (2018-08-22)
+- Add component `ImagePreview`
+- Add component `ImageUploader`
 ### v0.6.10 (2018-08-14)
 - Add HTML format support on component `Modal`
 ### v0.6.9 (2018-07-25)

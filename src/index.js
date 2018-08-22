@@ -13,6 +13,8 @@ import ScrollLoading from './components/ScrollLoading.vue';
 import Input from './components/Input.vue';
 import Suggestion from './components/Suggestion.vue';
 import Progress from './components/Progress.vue';
+import ImagePreview from './components/ImagePreview.vue';
+import ImageUploader from './components/ImageUploader.vue';
 
 import Api from './plugins/GlobalApi';
 
@@ -34,6 +36,8 @@ const install = function(Vue, options = {}) {
     Vue.component(Input.name, Input);
     Vue.component(Suggestion.name, Suggestion);
     Vue.component(Progress.name, Progress);
+    Vue.component(ImagePreview.name, ImagePreview);
+    Vue.component(ImageUploader.name, ImageUploader);
 
     Vue.$toast = Vue.prototype.$toast = () => Api.toast;
     Vue.$loading = Vue.prototype.$loading = () => Api.loading;
@@ -66,5 +70,7 @@ export {
     ScrollLoading,
     Input,
     Suggestion,
-    Progress
+    Progress,
+    ImagePreview,
+    ImageUploader,
 };
