@@ -63,6 +63,9 @@
             <div class="demo-list-item" @click="link('/image-uploader')">
                 <div class="demo-list-item-icon icon-image-uploader"></div> Image Uploader
             </div>
+            <div class="demo-list-item" @click="link('/switch')">
+                <div class="demo-list-item-icon icon-switch"></div> Switch
+            </div>
         </div>
 
         <zm-toast></zm-toast>
@@ -88,6 +91,8 @@
                 其他任何内容
             </template>
         </zm-modal>
+
+        <zm-loading></zm-loading>
 
         <router-view></router-view>
     </div>
@@ -252,6 +257,10 @@
         background-image: url('../src/assets/demo/icon-image-uploader.png');
     }
 
+    .icon-switch {
+        background-image: url('../src/assets/demo/icon-switch.png');
+    }
+
     .demo-btn {
         padding: 10px 20px;
         display: block;
@@ -324,5 +333,15 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .demo-flex-space-between {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .demo-margin-bottom {
+        margin-bottom: 10px;
     }
 </style>

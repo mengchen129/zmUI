@@ -6,7 +6,6 @@
         <button class="demo-btn" @click="hideLoading">隐藏 Loading</button>
         <button class="demo-btn" @click="showLoadingModal">展示 Loading(模态,2秒后自动关闭)</button>
 
-        <zm-loading></zm-loading>
     </div>
 </template>
 

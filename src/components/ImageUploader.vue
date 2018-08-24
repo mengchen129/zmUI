@@ -48,6 +48,10 @@
             jsonReader: {               // 上传成功后从响应数据解析出 url 部分的函数
                 type: Function,
             },
+            ajaxObjGetFunc: {           // 将 axios 和 qs 对象通过函数传入
+                type: Function,
+                default: () => ({}),
+            },
             value: {                    // v-model 传入的响应式数据
                 type: Array,
                 default: []
@@ -81,6 +85,7 @@
                     let file = event.target.files[0];
 
                     new ImageHandle({
+                        ajaxObj: this.ajaxObjGetFunc(),
                         file: file,
                         uploadUrl: this.uploadUrl,
                         uploadKey: this.uploadKey,

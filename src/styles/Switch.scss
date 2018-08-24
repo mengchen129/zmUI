@@ -1,0 +1,36 @@
+$switch-duration: 0.15s;
+
+.zm-switch {
+  width: 56px;
+  height: 32px;
+  padding: 2px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: flex-end;
+  transition: background-color $switch-duration linear;
+
+  &.on {
+    background-color: rgba($theme-color, 0.24);
+  }
+  
+  &.off {
+    background-color: #ddd;
+  }
+}
+
+.zm-switch-ball {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  transition: background-color $switch-duration linear, transform $switch-duration linear;
+
+  &.on {
+    transform: translate3d(0, 0, 0);
+    background-color: $theme-color;
+  }
+
+  &.off {
+    background-color: #f4f4f4;
+    transform: translate3d(-24px, 0, 0);
+  }
+}

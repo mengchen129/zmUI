@@ -4,8 +4,8 @@
 
         <div style="margin-bottom: 10px;">最多可以上传 {{ maxImageCount }} 张照片</div>
         <zm-image-uploader
-                ref="imageUploader"
                 v-model="images"
+                :ajax-obj-get-func="ajaxObjGetFunc"
                 :max="maxImageCount"
                 tip="上传照片"
                 upload-url="http://test.api.shop.zhimazg.com/home/upload_img"
@@ -23,21 +23,14 @@
 </template>
 
 <script>
+    import axios from 'axios';
+    import qs from 'qs';
+
     export default {
         data() {
             return {
                 maxImageCount: 5,
-                images: [/*{
-                    url: 'http://img.ishequ360.com/180822/7f0a9937c8f1816a080cd1e77370dc1a.jpg',
-                },{
-                    url: 'http://img.ishequ360.com/180822/141b9507b96c7aa22412f27e44d2e5a3.jpg',
-                },{
-                    url: 'http://img.ishequ360.com/180822/141b9507b96c7aa22412f27e44d2e5a3.jpg',
-                },{
-                    url: 'http://img.ishequ360.com/180822/141b9507b96c7aa22412f27e44d2e5a3.jpg',
-                },{
-                    url: 'http://img.ishequ360.com/180822/141b9507b96c7aa22412f27e44d2e5a3.jpg',
-                }*/]
+                images: []
             }
         },
         methods: {
@@ -48,6 +41,12 @@
             previewImage(url) {
                 this.$refs.imagePreview.previewImage(url);
             },
+            ajaxObjGetFunc() {
+                return {
+                    axios,
+                    qs,
+                }
+            }
         }
     }
 </script>

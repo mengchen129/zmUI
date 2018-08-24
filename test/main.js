@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue';
+import axios from 'axios';
+import axiosInterceptor from './axios-interceptor';
+axiosInterceptor(axios);
 
 import DemoTheme from './pages/DemoTheme.vue';
 import DemoHeader from './pages/DemoHeader.vue';
@@ -19,6 +22,7 @@ import DemoSuggestion from './pages/DemoSuggestion.vue';
 import DemoProgress from './pages/DemoProgress.vue';
 import DemoImagePreview from './pages/DemoImagePreview.vue';
 import DemoImageUploader from './pages/DemoImageUploader.vue';
+import DemoSwitch from './pages/DemoSwitch.vue';
 
 
 import VueRouter from 'vue-router';
@@ -96,6 +100,10 @@ const routes = [
     {
         path: '/image-uploader',
         component: DemoImageUploader,
+    },
+    {
+        path: '/switch',
+        component: DemoSwitch,
     }
 ];
 

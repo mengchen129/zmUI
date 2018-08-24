@@ -1,6 +1,3 @@
-import axios from 'axios';
-import qs from 'qs';
-
 const EMPTY_FUNCTION = function() {};
 const IDENTITY_FUNCTION = function(data) { return data; };
 
@@ -12,11 +9,16 @@ const IDENTITY_FUNCTION = function(data) { return data; };
  * 2、使用图像的 Base64 编码进行 POST 上传
  */
 export default class ImageHandle {
-    constructor({ file, uploadUrl, uploadKey, clipSizeLong, clipSizeShort, beforeUploadCallback, jsonReader, finishCallback }) {
+    constructor({ ajaxObj, file, uploadUrl, uploadKey, clipSizeLong, clipSizeShort, beforeUploadCallback, jsonReader, finishCallback }) {
         if (!file) { throw new Error('参数 file 不能为空');}
         if (!uploadUrl) { throw new Error('参数 uploadUrl 不能为空'); }
         if (!uploadKey) { throw new Error('参数 uploadKey 不能为空'); }
 
+        this.axios = ajaxObj.axios;
+        this.qs = ajaxObj.qs;
+        if (!this.axios || !this.qs) {
+            throw new Error('请将 axios 和 qs 对象通过 ajax-obj-get-func 属性传入');
+        }
 
         this.file = file;
         this.uploadUrl = uploadUrl;
@@ -104,7 +106,7 @@ export default class ImageHandle {
         let base64Index = imgData.indexOf('base64,');
         let imgBase64Data = imgData.substring(base64Index + 'base64,'.length);
 
-        return axios.post(this.uploadUrl, qs.stringify({[this.uploadKey]: imgBase64Data}));
+        return this.axios.post(this.uploadUrl, this.qs.stringify({[this.uploadKey]: imgBase64Data}));
     }
 
     /**
