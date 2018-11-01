@@ -14,6 +14,8 @@
                 clip-size-short="100"
                 :json-reader="jsonReader"
                 @preview-image="previewImage"
+                @upload-click="uploadClick"
+                is-custom-upload="false"
         ></zm-image-uploader>
 
         <div>已选图片：{{ images }}</div>
@@ -46,6 +48,9 @@
                     axios,
                     qs,
                 }
+            },
+            uploadClick(){
+                alert('通用上传事件，可用于webview调起相机拍照');
             }
         }
     }

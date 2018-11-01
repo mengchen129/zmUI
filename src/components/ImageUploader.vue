@@ -55,6 +55,10 @@
             value: {                    // v-model 传入的响应式数据
                 type: Array,
                 default: []
+            },
+            isCustomUpload: {
+                type: String,          //是否自定义上传事件，默认是false
+                default: false
             }
         },
         data() {
@@ -65,6 +69,7 @@
             if ('ontouchstart' in window) {
                 this.$refs.file.setAttribute('accept', 'image/*');      // 移动端需要设置为*,让安卓出现相机选项
             }
+
         },
         methods: {
             previewImage(image) {
@@ -78,7 +83,11 @@
                 });
             },
             triggerFileClick() {
-                this.$refs.file.click();
+                if(this.isCustomUpload) {
+                    this.$emit('upload-click');
+                }else{
+                    this.$refs.file.click();
+                }
             },
             fileChoose(event) {
                 if (event.target.value) {
