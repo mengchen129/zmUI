@@ -57,7 +57,7 @@
                 default: []
             },
             isCustomUpload: {
-                type: String,          //是否自定义上传事件，默认是false
+                type: Boolean,          //是否自定义上传事件，默认是false
                 default: false
             }
         },
@@ -85,7 +85,7 @@
             triggerFileClick() {
                 if(this.isCustomUpload) {
                     this.$emit('upload-click');
-                }else{
+                } else {
                     this.$refs.file.click();
                 }
             },
