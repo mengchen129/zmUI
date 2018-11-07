@@ -237,6 +237,8 @@ To be continued.
 To be continued.
 
 ## Changelog
+### v0.7.2 (2018-11-02)
+- Add custom uploading support on component `ImageUploader`
 ### v0.7.1 (2018-08-24)
 - Remove dependencies from component `ImageUploader`
 - Add component `Switch`
