@@ -1,8 +1,8 @@
+/* 使用 left/top 50%及transformX/y -50%实现屏幕水平垂直居中而不占用整行空间 */
 .zm-toast {
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
   right: 0;
   height: 40px;
   margin: auto;
@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: stretch;
   z-index: $toast-z-index;
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(-50%, -50%, 0);
 }
 
 .zm-toast.with-icon {
@@ -38,4 +38,5 @@
   color: #fff;
   padding: 0 15px;
   font-size: 14px;
+  white-space: nowrap;    // left:50% 先计算可能会导致文字折行，所以控制 toast 文字不折行
 }
